@@ -43,6 +43,7 @@ cache_dir="/fs/clip-scratch/atrey" # Cache directory to save the model
 
 experiments_str=$(IFS=" "; echo "${experiments[*]}")
 
+
 echo "hi"
 # add the correct file below
 # there are also flags for `load_in_4bit` and `load_in_8bit`
