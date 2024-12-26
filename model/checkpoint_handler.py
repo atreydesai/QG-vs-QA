@@ -1,4 +1,4 @@
-import pickle
+import json
 import os
 
 class Checkpoint:
@@ -38,11 +38,11 @@ class Checkpoint:
     def set_directories(self, pt):
 
         if self.partition == 'full':
-            final_res_dir = f'{self.results_dir}/{self.run_name}/{pt.value}.pkl'
-            final_res_dir_temp = f'{self.results_dir}/{self.run_name}/{pt.value}_temporary.pkl'
+            final_res_dir = f'{self.results_dir}/{self.run_name}/{pt.value}.json'
+            final_res_dir_temp = f'{self.results_dir}/{self.run_name}/{pt.value}_temporary.json'
         else:
-            final_res_dir = f'{self.results_dir}/{self.run_name}/{self.partition}/{pt.value}.pkl'
-            final_res_dir_temp = f'{self.results_dir}/{self.run_name}/{self.partition}/{pt.value}_temporary.pkl'
+            final_res_dir = f'{self.results_dir}/{self.run_name}/{self.partition}/{pt.value}.json'
+            final_res_dir_temp = f'{self.results_dir}/{self.run_name}/{self.partition}/{pt.value}_temporary.json'
 
         self.final_res_dir = final_res_dir
         self.final_res_dir_temp = final_res_dir_temp
@@ -50,15 +50,15 @@ class Checkpoint:
     def load_checkpoint(self):
 
         if os.path.exists(self.final_res_dir):
-            with open(self.final_res_dir, 'rb') as handle:
-                outputs = pickle.load(handle)
+            with open(self.final_res_dir, 'r') as handle:
+                outputs = json.load(handle)
                 return outputs
 
         if not os.path.exists(self.final_res_dir_temp):
             return {'raw_text': [], 'prompt': []}
         
-        with open(self.final_res_dir_temp, 'rb') as handle:
-            outputs = pickle.load(handle)
+        with open(self.final_res_dir_temp, 'r') as handle:
+            outputs = json.load(handle)
         return outputs
 
     def save_checkpoint(self, outputs, is_final):
@@ -68,8 +68,8 @@ class Checkpoint:
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
-        with open(out_dir, 'wb') as handle:
-            pickle.dump(outputs, handle, protocol=pickle.HIGHEST_PROTOCOL)
+        with open(out_dir, 'w') as handle:
+            json.dump(outputs, handle, indent=4)
 
     def get_final_dir(self):
         return self.final_res_dir

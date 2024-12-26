@@ -2,7 +2,9 @@
 from data_loader import PromptCollator
 from checkpoint_handler import Checkpoint
 from model_loader import ModelFactory
-from enums import ModelType, PromptType
+from enums import ModelType, PromptType, GenerationStep
+from prompt import PromptFactory, ZeroShotPrompt, ConceptGenerationPrompt, AnswerGenerationPrompt, DistractorGenerationPrompt, FactGenerationPrompt, ChoicesGenerationPrompt, QuestionGenerationVanilla, QuestionAnsweringVanilla
+
 
 import pickle
 import datasets
@@ -10,6 +12,7 @@ import tqdm
 import os
 import copy
 import argparse
+import itertools
 
 # =========================================== Argument Setup ===========================================
 
@@ -157,58 +160,124 @@ def setup():
         help="Absolute directory of the output results folder",
         default="./",
     )
+
+    parser.add_argument(
+    "--step_combination",
+    type=str,
+    help="Step combination to use for MCQ generation",
+    default="caqd",  # default combo
+    )
+    
     args = parser.parse_args()
     print(args)
     return args
 
 # =========================================== Main Method ===========================================
+MCQ_STEP_COMBINATIONS = {
+    "caqd": [GenerationStep.concept, GenerationStep.answer, GenerationStep.question, GenerationStep.distractor],
+    "cqad": [GenerationStep.concept, GenerationStep.question, GenerationStep.answer, GenerationStep.distractor],
+    "cfaqd": [GenerationStep.concept, GenerationStep.fact, GenerationStep.answer_question, GenerationStep.distractor],
+    "ccaq": [GenerationStep.concept, GenerationStep.choices, GenerationStep.answer_question],
+}
+
+class GenerationPipeline:
+    def __init__(self, model, args):
+        self.model = model
+        self.args = args
+        self.prompt_factory = PromptFactory()
+    
+    def generate_mcq(self, initial_data, step_combination_name):
+        if not isinstance(initial_data, dict):
+            raise ValueError("Initial data must be a dictionary with keys: concept, question, answer, distractors.")
+
+        data = copy.deepcopy(initial_data)
+        generated_text = {}
+        steps = MCQ_STEP_COMBINATIONS.get(step_combination_name)
+        if not steps:
+            raise ValueError(f"Invalid step combination name: {step_combination_name}")
+        
+        for step in steps:
+            prompt_class = self.prompt_factory.get_prompt_for_step(step)
+            if not prompt_class:
+                print(f"Warning: No prompt template found for step: {step}")
+                continue
+
+            prompt_template = prompt_class()
+
+            prompt = prompt_template.create_prompt(data)
+            if prompt is None:
+                print(f"Warning: No prompt generated for step: {step}")
+                continue
+            
+            out_text = self.model.generate_text(prompt)
+            generated_text[step.value] = out_text  
+            data[step.value] = out_text 
+
+        return generated_text
+
 
 def main(args):
-
     # load model
     model_factory = ModelFactory()
     model = model_factory.get_model(args)
 
     # load checkpoints
     checkpoint_loader = Checkpoint(args)
-    
-    # load prompt collator
     prompt_collator = PromptCollator(args)
 
-    for pt in args.prompt_types[0]:
+    for prompt_type in args.prompt_types:
+        for pt in prompt_type:
+            checkpoint_loader.set_directories(pt)
+            prompts = list(prompt_collator.get_prompts(pt, checkpoint_loader)) # prompts needs to be a list
+            start, end = checkpoint_loader.setup_partition(len(prompts))
 
-        # set output directories
-        checkpoint_loader.set_directories(pt) 
+            # Load current save state (optional, for resuming)
+            outputs = checkpoint_loader.load_checkpoint()
+            start += len(outputs['raw_text'])
 
-        # get prompts and dataset size
-        prompts = prompt_collator.get_prompts(pt, checkpoint_loader)
-        
-        # set up inference bounds
-        start, end = checkpoint_loader.setup_partition(len(prompts))
+            if pt == PromptType.tree_generation:
+                # Initialize GenerationPipeline
+                generation_pipeline = GenerationPipeline(model, args)
 
-        # load current save state and adjust starting point
-        outputs = checkpoint_loader.load_checkpoint()
-        start += len(outputs['raw_text'])
+                # Iterate through prompts and generate MCQs
+                for idx in tqdm.tqdm(range(start, end)):
+                    data_item = prompts[idx]  # Rename 'prompt' to 'data_item'
 
-        # iterate through outputs and generate the response
-        for idx in tqdm.tqdm(range(start, end)):
-            prompt = prompts[idx]
-            
-            if prompt == None:
-                outputs['raw_text'].append(None)
-                outputs['prompt'].append(None)
-                continue
+                    if data_item is None:  # Handle potential None values from get_prompts
+                        outputs['raw_text'].append(None)
+                        outputs['prompt'].append(None)
+                        continue
 
-            out_text = model.generate_text(prompt)
+                    # Prepare initial data for GenerationPipeline
+                    initial_data = {
+                        'concept': data_item.get('category', ''),
+                        'question': data_item.get('question', ''),
+                        'answer': data_item.get('correct_answer', ''),
+                        'distractors': data_item.get('distractors', [])
+                    }
 
-            outputs['raw_text'].append(out_text)
-            outputs['prompt'].append(prompt)
-            checkpoint_loader.save_checkpoint(outputs, False)
+                    # Generate MCQ using the specified step combination
+                    generated_mcq = generation_pipeline.generate_mcq(initial_data, args.step_combination)
+                    outputs['raw_text'].append(generated_mcq)
+                    outputs['prompt'].append(data_item) # Append data_item instead of prompt
+                    checkpoint_loader.save_checkpoint(outputs, False)
+            else:
+                for idx in tqdm.tqdm(range(start, end)):
+                    prompt = prompts[idx]
+                    
+                    if prompt == None:
+                        outputs['raw_text'].append(None)
+                        outputs['prompt'].append(None)
+                        continue
 
-        # final save
-        checkpoint_loader.save_checkpoint(outputs, True)
+                    out_text = model.generate_text(prompt)
+
+                    outputs['raw_text'].append(out_text)
+                    outputs['prompt'].append(prompt)
+                    checkpoint_loader.save_checkpoint(outputs, False)
+            #final
+            checkpoint_loader.save_checkpoint(outputs, True)
 
 if __name__ == '__main__':
-    
     args = setup()
     main(args)

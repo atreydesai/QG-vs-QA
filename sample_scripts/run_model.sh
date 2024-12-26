@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # activate your environment here!
-source ...
-conda activate ...
+#source ...
+#conda activate ...
 
 # dataset details
-inference_split="train"
-dataset_name="nbalepur/QG-vs-QA"
+inference_split="test"
+dataset_name="atreydesai/mmlu_arc_categories"
 
 # name of the model (identified by the API)
 model_name="meta-llama/Meta-Llama-3-8B-Instruct"
@@ -17,7 +17,7 @@ model_type="hf_chat"
 run_name="default"
 
 # API tokens
-hf_token=... # huggingface read token (for downloading gated models)
+hf_token=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 # huggingface read token (for downloading gated models)
 open_ai_token=... # OpenAI token (for GPT models)
 cohere_token=... # Cohere token (Command-R)
 anthropic_token=... # Anthropic token (Claude)
@@ -32,17 +32,21 @@ partition="full"  # partition of the dataset. can be "full" or in halves (e.g. "
 
 # experiment to run
 # see all possible experiments in: /mcqa-artifacts/model/data_loader.py
-experiments=("qa_selfcons")
+#experiments=("qg")
+experiments=("tree_generation")
+step_combination="caqd"
+
 
 # directory setup
-res_dir=".../QG-vs-QA/results/" # Results folder directory
-cache_dir="..." # Cache directory to save the model
+res_dir="/fs/clip-projects/rlab/atrey/qgqa/QG-vs-QA/script_results" # Results folder directory
+cache_dir="/fs/clip-scratch/atrey" # Cache directory to save the model
 
 experiments_str=$(IFS=" "; echo "${experiments[*]}")
 
+echo "hi"
 # add the correct file below
 # there are also flags for `load_in_4bit` and `load_in_8bit`
-python3 .../QG-vs-QA/model/run_model.py \
+python3 /fs/clip-projects/rlab/atrey/qgqa/QG-vs-QA/model/run_model.py \
 --run_name="$run_name" \
 --model_nickname="$model_name" \
 --model_name="$model_name" \
@@ -60,4 +64,7 @@ python3 .../QG-vs-QA/model/run_model.py \
 --max_tokens="$max_tokens" \
 --prompt_types="$experiments_str" \
 --res_dir="$res_dir" \
---cache_dir="$cache_dir"
+--cache_dir="$cache_dir" \
+--step_combination="$step_combination"
+
+echo "DONE"

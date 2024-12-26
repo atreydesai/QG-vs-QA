@@ -1,5 +1,5 @@
 import argparse
-import pickle
+import json
 from enum import Enum
 
 class PromptType(Enum):
@@ -86,9 +86,9 @@ def main(args):
     model_name = args.model_name
     run_name = args.run_name
 
-    f = f'{res_dir}{model_name}/{run_name}/{pt.value}.pkl'
-    with open(f, 'rb') as handle:
-        data = pickle.load(handle)
+    f = f'{res_dir}{model_name}/{run_name}/{pt.value}.json'
+    with open(f, 'r') as handle:
+        data = json.load(handle)
     raw_out = data['raw_text']
 
     parsed_qs = []
@@ -99,10 +99,10 @@ def main(args):
             continue
         parsed_qs.append(pq)
 
-    f = f'{res_dir}{model_name}/{run_name}/{pt.value}+question.pkl'
+    f = f'{res_dir}{model_name}/{run_name}/{pt.value}+question.json'
     data['question'] = parsed_qs
-    with open(f, 'wb') as handle:
-        pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    with open(f, 'w') as handle:
+        json.dump(data, handle, indent=4)
 
 if __name__ == '__main__':
     args = setup()

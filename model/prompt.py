@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import random
 import copy
-from enums import PromptType
+from enums import PromptType, GenerationStep
 
 # Abstract base class for implementing zero-shot prompts
 class ZeroShotPrompt(ABC):
@@ -70,6 +70,87 @@ class QuestionAnsweringVanilla(ZeroShotPrompt):
         prompt = f'Generate the answer to the question: "{question}". Give just the answer and no explanation. Please format your output as "Answer: [insert generated answer]". If no possible answer exists say "IDK".'
         return prompt
 
+class CategoryGenerationPrompt(ZeroShotPrompt):
+    def create_prompt(self, data):
+        question = data['input']
+        prompt = f"The following question is about: [QUESTION] {question} \nWhat is the most appropriate category for this question? \nCategory:"
+        prompt = f"""
+        The following question is about: [QUESTION] {question}\n
+What is the most appropriate category for this question? I have provided 10 examples of questions and their associated categories\n
+
+Examples:\n
+
+1. Question: What is the formula for calculating the area of a circle?\n
+Category: Mathematics - Geometry\n
+
+2. Question: How does photosynthesis work in plants?\n
+Category: Science - Biology\n
+
+3. Question: What were the major themes in Shakespeare's Hamlet?\n
+Category: Literature - Drama\n
+
+4. Question: What are the steps to bake a chocolate cake?\n
+Category: Cooking - Baking\n
+
+5. Question: How do I troubleshoot a slow internet connection?\n
+Category: Technology - Troubleshooting\n
+
+6. Question: What are the current ethical considerations surrounding artificial intelligence?\n
+Category: Ethics - Technology\n
+
+7. Question: What is the best strategy for investing in stocks for long-term growth?\n
+Category: Finance - Investing\n
+
+8. Question: Who painted the Mona Lisa and during what period?\n
+Category: Art - Renaissance\n
+
+9. Question: What are the benefits of regular exercise on mental health?\n
+Category: Health - Mental Wellness\n
+
+10. Question: What was the primary cause of the American Civil War?\n
+Category: History - American History\n
+
+Now, classify this question:\n
+
+[QUESTION] {question}\n
+Category:\n
+        """
+
+        return prompt
+
+class ConceptGenerationPrompt(ZeroShotPrompt):
+     def create_prompt(self, data):
+        prompt = f'Generate a concept related to the following: [Data] {data}. The concept should be a single word or a short phrase. Please format your output as "Concept: [insert generated concept]".'
+        return prompt
+
+class AnswerGenerationPrompt(ZeroShotPrompt):
+    def create_prompt(self, data):
+        concept = data.get('concept', '')  # Get concept from data, default to empty if not present
+        prompt = f'Generate a concise answer related to the concept: "{concept}". Please format your output as "Answer: [insert generated answer]".'
+        return prompt
+
+class DistractorGenerationPrompt(ZeroShotPrompt):
+    def create_prompt(self, data):
+        question = data.get('question', '')
+        answer = data.get('answer', '')
+        prompt = f'Generate three plausible but incorrect answer choices (distractors) for the following question: "{question}" where the correct answer is "{answer}". Ensure distractors are of similar length and type as the answer. Format your output as "Distractor 1: [distractor1], Distractor 2: [distractor2], Distractor 3: [distractor3]".'
+        return prompt
+    
+class FactGenerationPrompt(ZeroShotPrompt):
+     def create_prompt(self, data):
+        concept = data.get('concept', '')
+        prompt = f'Generate a fact related to the concept: "{concept}". Please format your output as "Fact: [insert fact]".'
+        return prompt
+    
+class ChoicesGenerationPrompt(ZeroShotPrompt):
+    def create_prompt(self, data):
+        concept = data.get('concept', '')
+        prompt = f'Generate four possible choices for a multiple-choice question related to the concept: "{concept}". Ensure one choice is the correct answer, and the others are plausible distractors. Format your output as "Choice A: [choice_a], Choice B: [choice_b], Choice C: [choice_c], Choice D: [choice_d]". Indicate the correct answer with an asterisk (*).'
+        return prompt
+
+
+
+
 class PromptFactory:
 
     def __init__(self):
@@ -82,10 +163,24 @@ class PromptFactory:
 
             PromptType.qa: QuestionAnsweringVanilla,
             PromptType.qa_selfcons: QuestionAnsweringVanilla,
+
+            PromptType.category_generation: CategoryGenerationPrompt,
         }
+    
+    def get_prompt_for_step(self, step: GenerationStep):
+        prompt_map = {
+            GenerationStep.concept: ConceptGenerationPrompt,
+            GenerationStep.answer: AnswerGenerationPrompt,
+            GenerationStep.question: QuestionGenerationVanilla,
+            GenerationStep.distractor: DistractorGenerationPrompt,
+            GenerationStep.fact: FactGenerationPrompt,
+            GenerationStep.answer_question: QuestionAnsweringVanilla,
+            GenerationStep.choices: ChoicesGenerationPrompt,
+        }
+        return prompt_map.get(step)
 
     def get_prompt(self, prompt_type):
         if prompt_type in self.prompt_type_map:
-            return self.prompt_type_map[prompt_type]()
+            return self.get_prompt_for_step[prompt_type]()
         else:
             raise ValueError(f"Unsupported Prompt type: {prompt_type}")
