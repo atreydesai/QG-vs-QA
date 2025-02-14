@@ -2,10 +2,8 @@
 from data_loader import PromptCollator
 from checkpoint_handler import Checkpoint
 from model_loader import ModelFactory
-from enums import ModelType, PromptType, GenerationStep
-from prompt import PromptFactory, ZeroShotPrompt, ConceptGenerationPrompt, AnswerGenerationPrompt, DistractorGenerationPrompt, FactGenerationPrompt, ChoicesGenerationPrompt, QuestionGenerationVanilla, QuestionAnsweringVanilla
-
-
+from enums import ModelType, PromptType, GenerationStep, MCQ_STEP_COMBINATIONS
+from prompt import PromptFactory, ZeroShotPrompt
 import pickle
 import datasets
 import tqdm
@@ -79,7 +77,7 @@ def setup():
         "--load_in_4bit",
         action='store_true',
         help="Should we load the model in 4 bit?",
-        default=False,
+        default=True,
     )
     parser.add_argument(
         "--temperature",
@@ -130,10 +128,10 @@ def setup():
         default="",
     )
     parser.add_argument(
-        '--prompt_types', 
-        nargs='*', 
-        type=enum_type(PromptType), 
-        help='Prompt types/experiments to run', 
+        '--prompt_types',
+        nargs='*',
+        type=enum_type(PromptType),
+        help='Prompt types/experiments to run',
         default=[]
     )
     parser.add_argument(
@@ -165,53 +163,51 @@ def setup():
     "--step_combination",
     type=str,
     help="Step combination to use for MCQ generation",
-    default="caqd",  # default combo
+    default="aqd",  # default combo changed to aqd
     )
-    
+
     args = parser.parse_args()
     print(args)
     return args
 
 # =========================================== Main Method ===========================================
-MCQ_STEP_COMBINATIONS = {
-    "caqd": [GenerationStep.concept, GenerationStep.answer, GenerationStep.question, GenerationStep.distractor],
-    "cqad": [GenerationStep.concept, GenerationStep.question, GenerationStep.answer, GenerationStep.distractor],
-    "cfaqd": [GenerationStep.concept, GenerationStep.fact, GenerationStep.answer_question, GenerationStep.distractor],
-    "ccaq": [GenerationStep.concept, GenerationStep.choices, GenerationStep.answer_question],
-}
+
 
 class GenerationPipeline:
     def __init__(self, model, args):
         self.model = model
         self.args = args
         self.prompt_factory = PromptFactory()
-    
-    def generate_mcq(self, initial_data, step_combination_name):
-        if not isinstance(initial_data, dict):
-            raise ValueError("Initial data must be a dictionary with keys: concept, question, answer, distractors.")
 
+    def generate_mcq(self, initial_data, step_combination_name):
         data = copy.deepcopy(initial_data)
         generated_text = {}
+        # caqd => generated_text[category] = [...]
         steps = MCQ_STEP_COMBINATIONS.get(step_combination_name)
         if not steps:
             raise ValueError(f"Invalid step combination name: {step_combination_name}")
-        
+
         for step in steps:
-            prompt_class = self.prompt_factory.get_prompt_for_step(step)
+            print(f"\n--- Step: {step} ---")
+            print(f"Current data before prompt creation: {data}") # Debugging print
+
+            prompt_class = self.prompt_factory.get_prompt_for_step(step, step_combination_name)
             if not prompt_class:
                 print(f"Warning: No prompt template found for step: {step}")
                 continue
 
-            prompt_template = prompt_class()
-
+            prompt_template = prompt_class
             prompt = prompt_template.create_prompt(data)
             if prompt is None:
                 print(f"Warning: No prompt generated for step: {step}")
                 continue
-            
+
+            print(f"Prompt sent to LLM:\n{prompt}")
+
             out_text = self.model.generate_text(prompt)
-            generated_text[step.value] = out_text  
-            data[step.value] = out_text 
+            generated_text[step.value] = out_text
+            data[step.value] = out_text
+            print(f"Data after step {step}: {data}")
 
         return generated_text
 
@@ -238,38 +234,35 @@ def main(args):
             if pt == PromptType.tree_generation:
                 # Initialize GenerationPipeline
                 generation_pipeline = GenerationPipeline(model, args)
-
                 # Iterate through prompts and generate MCQs
                 for idx in tqdm.tqdm(range(start, end)):
-                    data_item = prompts[idx]  # Rename 'prompt' to 'data_item'
+                    data_item = prompts[idx] 
+                    print(f"Data item type: {type(data_item)}") 
+                    print(f"Data item content: {data_item}") 
 
-                    if data_item is None:  # Handle potential None values from get_prompts
+                    if data_item is None:
                         outputs['raw_text'].append(None)
                         outputs['prompt'].append(None)
                         continue
 
-                    # Prepare initial data for GenerationPipeline
-                    initial_data = {
-                        'concept': data_item.get('category', ''),
-                        'question': data_item.get('question', ''),
-                        'answer': data_item.get('correct_answer', ''),
-                        'distractors': data_item.get('distractors', [])
-                    }
-
-                    # Generate MCQ using the specified step combination
+                    # # Prepare initial data for GenerationPipeline - use data_item directly
+                    initial_data = data_item  
+                    print("\n\n\n Initial data BEFORE generate_mcq:", initial_data) 
                     generated_mcq = generation_pipeline.generate_mcq(initial_data, args.step_combination)
                     outputs['raw_text'].append(generated_mcq)
-                    outputs['prompt'].append(data_item) # Append data_item instead of prompt
+                    outputs['prompt'].append(data_item)
                     checkpoint_loader.save_checkpoint(outputs, False)
+
             else:
                 for idx in tqdm.tqdm(range(start, end)):
-                    prompt = prompts[idx]
-                    
-                    if prompt == None:
+                    prompt = prompts[idx] 
+
+                    if prompt is None:
                         outputs['raw_text'].append(None)
                         outputs['prompt'].append(None)
                         continue
-
+                    
+                    prompt_data = {'prompt': prompt}
                     out_text = model.generate_text(prompt)
 
                     outputs['raw_text'].append(out_text)

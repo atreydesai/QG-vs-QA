@@ -1,9 +1,8 @@
 from abc import ABC, abstractmethod
 import random
 import copy
-from enums import PromptType, GenerationStep
+from enums import PromptType, GenerationStep, MCQ_STEP_COMBINATIONS, Enum
 
-# Abstract base class for implementing zero-shot prompts
 class ZeroShotPrompt(ABC):
 
     def __init__(self):
@@ -14,7 +13,6 @@ class ZeroShotPrompt(ABC):
         """Create a zero-shot prompt"""
         pass
 
-# Question Generation Prompts
 class QuestionGenerationVanilla(ZeroShotPrompt):
 
     def create_prompt(self, data):
@@ -58,11 +56,11 @@ Question: How many verses are there in the longest chapter of the Quran, Surah A
 Answer: 311
 Question: What is the sum of the first three prime numbers greater than 100?
 
-"""   
+"""
         prompt += f"Answer: {answer}\nQuestion:"
         return prompt
 
-# Question Answering Prompts
+
 class QuestionAnsweringVanilla(ZeroShotPrompt):
 
     def create_prompt(self, data):
@@ -72,115 +70,124 @@ class QuestionAnsweringVanilla(ZeroShotPrompt):
 
 class CategoryGenerationPrompt(ZeroShotPrompt):
     def create_prompt(self, data):
-        question = data['input']
-        prompt = f"The following question is about: [QUESTION] {question} \nWhat is the most appropriate category for this question? \nCategory:"
-        prompt = f"""
-        The following question is about: [QUESTION] {question}\n
-What is the most appropriate category for this question? I have provided 10 examples of questions and their associated categories\n
+        question = data['prompt']
+        prompt = f"""Provide a category for this question:
 
-Examples:\n
+Question: What is the formula for calculating the area of a circle?
+Category: Mathematics - Geometry - Area of a Circle
 
-1. Question: What is the formula for calculating the area of a circle?\n
-Category: Mathematics - Geometry\n
+Question: How does photosynthesis work in plants?
+Category: Science - Biology - Photosynthesis
 
-2. Question: How does photosynthesis work in plants?\n
-Category: Science - Biology\n
+Question: What were the major themes in Shakespeare's Hamlet?
+Category: Literature - Drama - Shakespeare's Hamlet
 
-3. Question: What were the major themes in Shakespeare's Hamlet?\n
-Category: Literature - Drama\n
+Question: What are the steps to bake a chocolate cake?
+Category: Cooking - Baking - Baking a Cake
 
-4. Question: What are the steps to bake a chocolate cake?\n
-Category: Cooking - Baking\n
+Question: How do I troubleshoot a slow internet connection?
+Category: Technology - Troubleshooting - Internet Connection
 
-5. Question: How do I troubleshoot a slow internet connection?\n
-Category: Technology - Troubleshooting\n
+Question: What are the current ethical considerations surrounding artificial intelligence?
+Category: Ethics - Technology - Artificial Intelligence
 
-6. Question: What are the current ethical considerations surrounding artificial intelligence?\n
-Category: Ethics - Technology\n
+Question: What is the best strategy for investing in stocks for long-term growth?
+Category: Finance - Investing - Stocks
 
-7. Question: What is the best strategy for investing in stocks for long-term growth?\n
-Category: Finance - Investing\n
+Question: Who painted the Mona Lisa and during what period?
+Category: Art - Renaissance - Mona Lisa
 
-8. Question: Who painted the Mona Lisa and during what period?\n
-Category: Art - Renaissance\n
+Question: What are the benefits of regular exercise on mental health?
+Category: Health - Mental Wellness - Exercise
 
-9. Question: What are the benefits of regular exercise on mental health?\n
-Category: Health - Mental Wellness\n
+Question: What was the primary cause of the American Civil War?
+Category: History - American History - American Civil War
 
-10. Question: What was the primary cause of the American Civil War?\n
-Category: History - American History\n
-
-Now, classify this question:\n
-
-[QUESTION] {question}\n
-Category:\n
-        """
-
+Question: {question}
+Category:"""
         return prompt
 
-class ConceptGenerationPrompt(ZeroShotPrompt):
-     def create_prompt(self, data):
-        prompt = f'Generate a concept related to the following: [Data] {data}. The concept should be a single word or a short phrase. Please format your output as "Concept: [insert generated concept]".'
-        return prompt
 
-class AnswerGenerationPrompt(ZeroShotPrompt):
+# --- Refactored MCQ Generation Prompts ---
+DESCRIPTIONS = {
+    GenerationStep.answer: "a single word or a short phrase that can be related to the previous step or steps",
+    GenerationStep.question: "a one-sentence query based on the previous step or steps",
+    GenerationStep.distractor: "a plausible but incorrect answer choice for a multiple-choice question",
+    GenerationStep.fact: "a short sentence stating a verifiable truth",
+    GenerationStep.answer_question: "a question and answer pair, where the question is one sentence and the answer is a single word or a short phrase",
+    GenerationStep.choices: "four possible options for a multiple-choice question, labeled A, B, C, and D",
+}
+
+# acqd
+
+INPUT_REQUIREMENTS = {
+    ("aqd", GenerationStep.answer): ['category'], 
+    ("aqd", GenerationStep.question): ['category', 'answer'],   
+    ("aqd", GenerationStep.distractor): ['category', 'question', 'answer'],   
+    ("fpd", GenerationStep.fact): ['category'],   
+    ("fpd", GenerationStep.answer_question): ['category', 'fact'],   
+    ("fpd", GenerationStep.distractor): ['category', 'question_answer'],   
+    ("hp", GenerationStep.choices): ['category'],   
+    ("hp", GenerationStep.answer_question): ['category', 'choices'],   
+}
+
+def build_prompt(step_combination_name, step, data):
+    inputs_needed = INPUT_REQUIREMENTS.get((step_combination_name, step), [])
+    inputs = {inp: data[inp] for inp in inputs_needed}
+    output_description = DESCRIPTIONS.get(step, "output")
+
+    prompt = f"I will give you the following inputs:\n"
+    for inp_name, inp_value in inputs.items():
+        display_name = "Category" if inp_name == "category" else inp_name.capitalize()
+        prompt += f"- {display_name}: \"{inp_value}\"\n"
+
+    if step == GenerationStep.answer:
+        prompt += f"\nYour task is to generate a concise answer related to the given Category. "
+        prompt += f"The answer should be {output_description} within the topic of \"{data['category']}\".\n" # Explicitly mention category
+    else:
+        prompt += f"\nYour task is to generate the {step.value}.  A {step.value} is {output_description}.\n"
+
+    if(step.value == "distractor"):
+        prompt += f"Generate three plausible distractors. Format your output as \"[distractor1], [distractor2], [distractor3]\"."
+    else:
+        prompt += f"Format your output as \"[{step.value}]\"."
+    return prompt
+
+
+class GenericMCQPrompt(ZeroShotPrompt):
+    def __init__(self, step_combination_name, step):
+        super().__init__()
+        self.step_combination_name = step_combination_name
+        self.step = step
+
     def create_prompt(self, data):
-        concept = data.get('concept', '')  # Get concept from data, default to empty if not present
-        prompt = f'Generate a concise answer related to the concept: "{concept}". Please format your output as "Answer: [insert generated answer]".'
-        return prompt
+        return build_prompt(self.step_combination_name, self.step, data)
 
-class DistractorGenerationPrompt(ZeroShotPrompt):
-    def create_prompt(self, data):
-        question = data.get('question', '')
-        answer = data.get('answer', '')
-        prompt = f'Generate three plausible but incorrect answer choices (distractors) for the following question: "{question}" where the correct answer is "{answer}". Ensure distractors are of similar length and type as the answer. Format your output as "Distractor 1: [distractor1], Distractor 2: [distractor2], Distractor 3: [distractor3]".'
-        return prompt
-    
-class FactGenerationPrompt(ZeroShotPrompt):
-     def create_prompt(self, data):
-        concept = data.get('concept', '')
-        prompt = f'Generate a fact related to the concept: "{concept}". Please format your output as "Fact: [insert fact]".'
-        return prompt
-    
-class ChoicesGenerationPrompt(ZeroShotPrompt):
-    def create_prompt(self, data):
-        concept = data.get('concept', '')
-        prompt = f'Generate four possible choices for a multiple-choice question related to the concept: "{concept}". Ensure one choice is the correct answer, and the others are plausible distractors. Format your output as "Choice A: [choice_a], Choice B: [choice_b], Choice C: [choice_c], Choice D: [choice_d]". Indicate the correct answer with an asterisk (*).'
-        return prompt
-
-
-
+# --- End Refactored MCQ Generation Prompts ---
 
 class PromptFactory:
 
     def __init__(self):
-
+        # This map is no longer strictly necessary
         self.prompt_type_map = {
             PromptType.qg: QuestionGenerationVanilla,
             PromptType.qg_cot: QuestionGenerationCoT,
             PromptType.qg_fewshot: QuestionGenerationFewShot,
             PromptType.qg_selfcheck: QuestionGenerationCheckAnswer,
-
             PromptType.qa: QuestionAnsweringVanilla,
             PromptType.qa_selfcons: QuestionAnsweringVanilla,
-
             PromptType.category_generation: CategoryGenerationPrompt,
         }
-    
-    def get_prompt_for_step(self, step: GenerationStep):
-        prompt_map = {
-            GenerationStep.concept: ConceptGenerationPrompt,
-            GenerationStep.answer: AnswerGenerationPrompt,
-            GenerationStep.question: QuestionGenerationVanilla,
-            GenerationStep.distractor: DistractorGenerationPrompt,
-            GenerationStep.fact: FactGenerationPrompt,
-            GenerationStep.answer_question: QuestionAnsweringVanilla,
-            GenerationStep.choices: ChoicesGenerationPrompt,
-        }
-        return prompt_map.get(step)
 
-    def get_prompt(self, prompt_type):
+
+    def get_prompt_for_step(self, step: GenerationStep, step_combination_name):
+        return GenericMCQPrompt(step_combination_name, step)
+
+    def get_prompt(self, prompt_type, step_combination_name="aqd"):
         if prompt_type in self.prompt_type_map:
-            return self.get_prompt_for_step[prompt_type]()
+            return self.prompt_type_map[prompt_type]()
+        elif prompt_type == PromptType.tree_generation:
+            first_step = MCQ_STEP_COMBINATIONS[step_combination_name][0] 
+            return self.get_prompt_for_step(first_step, step_combination_name)
         else:
             raise ValueError(f"Unsupported Prompt type: {prompt_type}")

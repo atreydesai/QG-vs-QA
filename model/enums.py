@@ -11,7 +11,6 @@ class PromptType(Enum):
     tree_generation = 'tree_generation'
 
 class GenerationStep(Enum):
-    concept = 'concept'
     answer = 'answer'
     question = 'question'
     distractor = 'distractor'
@@ -24,3 +23,10 @@ class ModelType(Enum):
     open_ai = 'open_ai'
     cohere = 'cohere'
     anthropic = 'anthropic'
+
+
+MCQ_STEP_COMBINATIONS = {
+    "aqd": [GenerationStep.answer, GenerationStep.question, GenerationStep.distractor],
+    "fpd": [GenerationStep.fact, GenerationStep.answer_question, GenerationStep.distractor],
+    "hp": [GenerationStep.choices, GenerationStep.answer_question],
+}

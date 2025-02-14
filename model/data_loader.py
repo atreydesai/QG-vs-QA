@@ -1,5 +1,5 @@
 from enum import Enum
-from enums import PromptType
+from enums import PromptType, GenerationStep #Import GenerationStep
 import os
 import datasets
 import numpy as np
@@ -37,11 +37,11 @@ class EntityFetcher(DataFetcher):
         else:
             ds = datasets.load_dataset(ds_name)
         return ds
-            
+
     def get_data(self, column_name='answer'):
         return list(self.ds[column_name])
-    
-    
+
+
 
 class QuestionFetcher(DataFetcher):
 
@@ -66,17 +66,26 @@ class QuestionFetcher(DataFetcher):
 
     def get_data(self, column_name='question'):
         return self.ds[column_name]
-    
+
 
 class MCQADatasetFetcher(DataFetcher):
 
     def __init__(self, dataset_name):
-        self.ds = datasets.load_dataset(dataset_name, token=HF_TOKEN)["test"] 
+        self.ds = datasets.load_dataset(dataset_name, token=HF_TOKEN)["test"]
 
     def get_data(self, column_name='question'):
-        return list(self.ds[column_name])
-    
-    
+        data = list(self.ds[column_name])
+        print(f"MCQADatasetFetcher:  get_data returning: {data[:3]=}") # Print first few items
+        return data
+
+
+class DatasetWithConceptsFetcher(DataFetcher):
+    def __init__(self, dataset_name, split_name):
+        self.ds = datasets.load_dataset(dataset_name, token=HF_TOKEN)[split_name]
+
+    def get_data(self):
+        return [{'category': item['category']} for item in self.ds]
+
 class DataFetcherFactory:
 
     @staticmethod
@@ -88,10 +97,11 @@ class DataFetcherFactory:
         elif prompt_type in {PromptType.qa_selfcons}:
             swapped_dir = checkpoint_loader.get_final_dir().replace('qa_selfcons', 'qg').replace('.json', '+question.json')
             return QuestionFetcher(swapped_dir)
-        elif prompt_type == PromptType.category_generation:  
+        elif prompt_type == PromptType.category_generation:
             return MCQADatasetFetcher(args.dataset_name)
         elif prompt_type ==PromptType.tree_generation:
-            return MCQADatasetFetcher(args.dataset_name)
+            #return MCQADatasetFetcher(args.dataset_name)
+            return DatasetWithConceptsFetcher(args.dataset_name, args.inference_split) #USE new fetcher
         else:
             raise ValueError(f"Unsupported DataFetcher type: {prompt_type}")
 
@@ -103,10 +113,12 @@ class PromptCollator:
 
     def get_prompts(self, prompt_type, checkpoint_loader):
         data_fetcher = self.data_fetcher_factory.get_data_fetcher(prompt_type, self.args, checkpoint_loader)
-        prompt_parser = self.prompt_factory.get_prompt(prompt_type)
+        # prompt_parser = self.prompt_factory.get_prompt(prompt_type) # No prompt_parser needed here for tree_generation at this level
 
-        #yield prompts one by one.
-        for p in data_fetcher.get_data():
-            prompt = None if p is None else prompt_parser.create_prompt({'input': p})
-            yield prompt
-        
+        for data_item in data_fetcher.get_data(): # Iterate over data dictionaries directly
+            if prompt_type == PromptType.tree_generation:
+                yield data_item  # Yield the data dictionary directly for tree_generation
+            else: # For other prompt types, keep the original prompt generation
+                prompt_parser = self.prompt_factory.get_prompt(prompt_type) # Get prompt parser for other types
+                prompt = None if data_item is None else prompt_parser.create_prompt(data_item) # Create prompt string for other types
+                yield prompt # Yield prompt string for other types

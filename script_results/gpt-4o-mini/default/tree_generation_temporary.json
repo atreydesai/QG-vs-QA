@@ -1,0 +1,22 @@
+{
+    "raw_text": [
+        {
+            "answer": "[Tariffs]",
+            "question": "[What are taxes imposed on imported goods that can affect international trade?]",
+            "distractor": "[Quotas], [Subsidies], [Import licenses]"
+        },
+        {
+            "answer": "[Proposition]",
+            "question": "[What is a statement that can be either true or false called in logic?]",
+            "distractor": "[Assertion], [Claim], [Hypothesis]"
+        }
+    ],
+    "prompt": [
+        {
+            "category": "Economics - International Trade"
+        },
+        {
+            "category": "Mathematics - Logic"
+        }
+    ]
+}

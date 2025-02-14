@@ -62,6 +62,7 @@ class HuggingFaceChatModel(LLM):
             do_sample=False,  
             min_new_tokens=self.min_length, 
             max_new_tokens=self.max_length,
+            #add stop_string command here
             return_full_text=False)[0]['generated_text'].strip()
         else:
             return self.pipe(messages, 
@@ -69,6 +70,7 @@ class HuggingFaceChatModel(LLM):
             temperature=self.temp, 
             min_new_tokens=self.min_length, 
             max_new_tokens=self.max_length,
+            #add stop_string command here
             return_full_text=False)[0]['generated_text'].strip()
 
 class OpenAI(LLM):
