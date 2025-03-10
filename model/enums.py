@@ -9,6 +9,7 @@ class PromptType(Enum):
     qa_selfcons = 'qa_selfcons'
     category_generation = 'category_generation'
     tree_generation = 'tree_generation'
+    answering_generation = 'answering_generation'
 
 class GenerationStep(Enum):
     answer = 'answer'
@@ -23,10 +24,3 @@ class ModelType(Enum):
     open_ai = 'open_ai'
     cohere = 'cohere'
     anthropic = 'anthropic'
-
-
-MCQ_STEP_COMBINATIONS = {
-    "aqd": [GenerationStep.answer, GenerationStep.question, GenerationStep.distractor],
-    "fpd": [GenerationStep.fact, GenerationStep.answer_question, GenerationStep.distractor],
-    "hp": [GenerationStep.choices, GenerationStep.answer_question],
-}

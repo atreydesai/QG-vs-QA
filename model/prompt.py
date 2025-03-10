@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 import random
 import copy
-from enums import PromptType, GenerationStep, MCQ_STEP_COMBINATIONS, Enum
+from enums import PromptType, GenerationStep, Enum
+import json
 
 class ZeroShotPrompt(ABC):
 
@@ -70,7 +71,7 @@ class QuestionAnsweringVanilla(ZeroShotPrompt):
 
 class CategoryGenerationPrompt(ZeroShotPrompt):
     def create_prompt(self, data):
-        question = data['prompt']
+        question = data
         prompt = f"""Provide a category for this question:
 
 Question: What is the formula for calculating the area of a circle?
@@ -109,66 +110,115 @@ Category:"""
 
 
 # --- Refactored MCQ Generation Prompts ---
+
 DESCRIPTIONS = {
-    GenerationStep.answer: "a single word or a short phrase that can be related to the previous step or steps",
-    GenerationStep.question: "a one-sentence query based on the previous step or steps",
-    GenerationStep.distractor: "a plausible but incorrect answer choice for a multiple-choice question",
+    GenerationStep.answer: "a maximum of one sentence",
+    GenerationStep.question: "a one-sentence query. This is just the question stem with no choices attached",
+    GenerationStep.distractor: "three plausible-sounding answer choices for a multiple-choice question, seperated by commas",
     GenerationStep.fact: "a short sentence stating a verifiable truth",
     GenerationStep.answer_question: "a question and answer pair, where the question is one sentence and the answer is a single word or a short phrase",
     GenerationStep.choices: "four possible options for a multiple-choice question, labeled A, B, C, and D",
 }
 
-# acqd
-
-INPUT_REQUIREMENTS = {
-    ("aqd", GenerationStep.answer): ['category'], 
-    ("aqd", GenerationStep.question): ['category', 'answer'],   
-    ("aqd", GenerationStep.distractor): ['category', 'question', 'answer'],   
-    ("fpd", GenerationStep.fact): ['category'],   
-    ("fpd", GenerationStep.answer_question): ['category', 'fact'],   
-    ("fpd", GenerationStep.distractor): ['category', 'question_answer'],   
-    ("hp", GenerationStep.choices): ['category'],   
-    ("hp", GenerationStep.answer_question): ['category', 'choices'],   
+INPUT_DESCRIPTIONS = {
+    'category': "the high-level category of the question",
+    # Add descriptions for other input types here, if needed!
 }
 
-def build_prompt(step_combination_name, step, data):
-    inputs_needed = INPUT_REQUIREMENTS.get((step_combination_name, step), [])
-    inputs = {inp: data[inp] for inp in inputs_needed}
-    output_description = DESCRIPTIONS.get(step, "output")
+STEP_MAP = {
+    'a': GenerationStep.answer,
+    'q': GenerationStep.question,
+    'd': GenerationStep.distractor,
+    'f': GenerationStep.fact,
+    'h': GenerationStep.choices,
+    'p': GenerationStep.answer_question
+}
 
-    prompt = f"I will give you the following inputs:\n"
-    for inp_name, inp_value in inputs.items():
-        display_name = "Category" if inp_name == "category" else inp_name.capitalize()
-        prompt += f"- {display_name}: \"{inp_value}\"\n"
+BLOOM_DESCRIPTIONS = {
+    "knowledge": "This will be of the level of thinking categorized as \"knowledge\" in Bloom's Taxonomy. This means rote factual knowledge of specific terminology, ways and means (i.e., conventions, trends, classifications and categories, criteria, methodology), universal axioms and/or abstractions accepted by the field or discipline (principles and generalizations, theories and structures).",
+    "comprehension": "This will be of the level of thinking categorized as \"comprehension\" in Bloom's Taxonomy. This means understanding the meaning of information and materials by being able to translate materials from one form or format to another by explaining or summarizing and predicting consequences or effects.",
+    "application": "This will be of the level of thinking categorized as \"application\" in Bloom's Taxonomy. This means using information and materials to solve new problems or respond to concrete situations that have a single or best answer through applying learned material such as rules, methods, concepts, principles, laws, and theories.",
+}
 
-    if step == GenerationStep.answer:
-        prompt += f"\nYour task is to generate a concise answer related to the given Category. "
-        prompt += f"The answer should be {output_description} within the topic of \"{data['category']}\".\n" # Explicitly mention category
-    else:
-        prompt += f"\nYour task is to generate the {step.value}.  A {step.value} is {output_description}.\n"
 
-    if(step.value == "distractor"):
-        prompt += f"Generate three plausible distractors. Format your output as \"[distractor1], [distractor2], [distractor3]\"."
-    else:
-        prompt += f"Format your output as \"[{step.value}]\"."
+def build_prompt(step_combination_name, current_step_index, data, bloom_level=None):
+    current_step_char = step_combination_name[current_step_index]
+    current_step = STEP_MAP.get(current_step_char)
+
+    if current_step is None:
+        raise ValueError(f"Invalid step character: {current_step_char}")
+
+    # Determine required inputs
+    required_inputs = {}
+    required_inputs['category'] = data['category'] #category always required
+
+    for i in range(current_step_index):
+        prev_step_char = step_combination_name[i]
+        prev_step = STEP_MAP[prev_step_char]
+        required_inputs[prev_step.value] = data.get(prev_step.value) #prev steps
+
+    #prompt :D
+    prompt = "You are generating multiple choice questions which contain a question, an answer, and a set of three distractors. The answer is the correct answer to the question while the distractors are plausible-sounding answer choices.\n\n"
+    prompt += f"Your current task is to generate {current_step.value} from the following inputs.  {current_step.value} is {DESCRIPTIONS[current_step]}.\n"
+
+
+
+    if current_step == GenerationStep.question and bloom_level:
+        prompt += BLOOM_DESCRIPTIONS.get(bloom_level, "") + "\n"
+
+
+    for inp_name, inp_value in required_inputs.items():
+        # print("\n\ninp_name is: " + inp_name)
+        # print("inp_value is: " + inp_name + "\n\n")
+
+        # inp_name corresponds to a GenerationStep enum
+        try:
+            generation_step = GenerationStep(inp_name)  # converting to enum
+            if generation_step in DESCRIPTIONS:
+                input_description = DESCRIPTIONS[generation_step]
+                prompt += f"The input {inp_name} is {input_description}.\n"
+            else:
+                print(f"Warning: No description found for {inp_name} in DESCRIPTIONS")
+
+        except ValueError:  # inp_name is NOT a GenerationStep
+            if inp_name in INPUT_DESCRIPTIONS:
+                prompt += f"The input {inp_name} is {INPUT_DESCRIPTIONS[inp_name]}.\n"
+            else:
+                print(f"Warning: No description found for input {inp_name} in INPUT_DESCRIPTIONS.  The prompt will proceed without a description for this input.")
+                prompt += f"The input {inp_name} exists.\n"
+
+
+    prompt += "The inputs are:\n"
+    for inp_name, inp_value in required_inputs.items():
+        prompt += f"{inp_name}: {inp_value}\n"
+
+    prompt += f"\nPlease structure your output as a JSON with a key for {current_step.value}.\n"
+
     return prompt
 
 
 class GenericMCQPrompt(ZeroShotPrompt):
-    def __init__(self, step_combination_name, step):
+    def __init__(self, step_combination_name, current_step_index):
         super().__init__()
         self.step_combination_name = step_combination_name
-        self.step = step
+        self.current_step_index = current_step_index
 
-    def create_prompt(self, data):
-        return build_prompt(self.step_combination_name, self.step, data)
+
+    def create_prompt(self, data, bloom_level=None):
+        return build_prompt(self.step_combination_name, self.current_step_index, data, bloom_level) 
 
 # --- End Refactored MCQ Generation Prompts ---
+
+class AnsweringGenerationPrompt(ZeroShotPrompt):
+    def create_prompt(self, data):
+        prompt_text = data['input']
+        prompt = f"Answer the following question. {prompt_text}\nAnswer:"
+        return prompt
 
 class PromptFactory:
 
     def __init__(self):
-        # This map is no longer strictly necessary
+        # This map is no longer necessary but idk if we need in the future so we keeping it
         self.prompt_type_map = {
             PromptType.qg: QuestionGenerationVanilla,
             PromptType.qg_cot: QuestionGenerationCoT,
@@ -177,17 +227,17 @@ class PromptFactory:
             PromptType.qa: QuestionAnsweringVanilla,
             PromptType.qa_selfcons: QuestionAnsweringVanilla,
             PromptType.category_generation: CategoryGenerationPrompt,
+            PromptType.answering_generation: AnsweringGenerationPrompt,
         }
 
 
-    def get_prompt_for_step(self, step: GenerationStep, step_combination_name):
-        return GenericMCQPrompt(step_combination_name, step)
+    def get_prompt_for_step(self, step_combination_name, current_step_index):
+        return GenericMCQPrompt(step_combination_name, current_step_index)
 
     def get_prompt(self, prompt_type, step_combination_name="aqd"):
         if prompt_type in self.prompt_type_map:
             return self.prompt_type_map[prompt_type]()
         elif prompt_type == PromptType.tree_generation:
-            first_step = MCQ_STEP_COMBINATIONS[step_combination_name][0] 
-            return self.get_prompt_for_step(first_step, step_combination_name)
+            return self.get_prompt_for_step(step_combination_name, 0)
         else:
             raise ValueError(f"Unsupported Prompt type: {prompt_type}")

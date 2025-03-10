@@ -1,0 +1,406 @@
+{
+    "raw_text": [
+        {
+            "question": "Which of the following measures best compares the output of two different factories?",
+            "answer": "Index of Production",
+            "distractor": "Gross Domestic Product, Number of Employees, Total Revenue"
+        },
+        {
+            "question": "Translate the following statement from predicate logic into English: \u2200x(P(x) \u2192 Q(x))",
+            "answer": "For all x, if P(x) then Q(x)",
+            "distractor": "For some x, if P(x) then Q(x), For no x, if P(x) then Q(x), For all x, if Q(x) then P(x)"
+        },
+        {
+            "question": "You are a lifeguard and see two people drowning, but you can only save one. One is your best friend, the other is a stranger who is a renowned scientist whose work could save many lives in the future. What do you do?",
+            "answer": "Save the scientist",
+            "distractor": "Save your best friend, let the scientist drown"
+        },
+        {
+            "question": "What is the frequency of ultraviolet light with a wavelength of 250 nm?",
+            "answer": "4.0 x 10^14 Hz",
+            "distractor": "1.5 x 10^15 Hz, 3.0 x 10^14 Hz, 6.0 x 10^14 Hz"
+        },
+        {
+            "question": "Which committee is responsible for overseeing the budget and appropriations for the entire federal government?",
+            "answer": "Appropriations Committee",
+            "distractor": "House Ways and Means Committee, Senate Finance Committee, Rules Committee"
+        },
+        {
+            "question": "Which of the following is NOT a sign of labor onset?",
+            "answer": "False contractions",
+            "distractor": "Regular contractions, Water breaking, Dilated cervix"
+        },
+        {
+            "question": "Which ethical theory emphasizes the greatest amount of happiness for the greatest number of people?",
+            "answer": "Utilitarianism",
+            "distractor": "Deontology, Social Contract Theory, Virtue Ethics"
+        },
+        {
+            "question": "In a family with an autosomal recessive disorder, if both parents are carriers and they have two children who are unaffected, what is the probability that their next child will also be unaffected?",
+            "answer": "2/3",
+            "distractor": "1/2, 1/3, None"
+        },
+        {
+            "question": "Which of the following is NOT a necessary condition for a field extension to be algebraic?",
+            "answer": "Finite",
+            "distractor": "Irreducible, Algebraically Independent, Finite"
+        },
+        {
+            "question": "You are a lifeguard and see two people drowning. One is a young child, the other is an adult who is a renowned scientist working on a cure for a deadly disease. Which person should you save first and why?",
+            "answer": "child",
+            "distractor": "adult scientist, elderly person, pregnant woman"
+        },
+        {
+            "question": "Which of the following is NOT a property of the binary operation defined on a group?",
+            "answer": "Non-associativity",
+            "distractor": "Commutativity, Identity Element, Inverse Element"
+        },
+        {
+            "question": "Which of the following functions is guaranteed to be continuous at x = 0?",
+            "answer": "f(x) = x^2",
+            "distractor": "f(x) = x^3, f(x) = sin(x), f(x) = |x|"
+        },
+        {
+            "question": "Which of the following is NOT a typical component of a Gantt chart?",
+            "answer": "Milestones",
+            "distractor": "Dependencies, Tasks, Duration"
+        },
+        {
+            "question": "Which feature selection technique is best suited for handling high-dimensional datasets and reducing dimensionality while preserving relevant information?",
+            "answer": "Recursive Feature Elimination (RFE)",
+            "distractor": "Principal Component Analysis (PCA), Linear Discriminant Analysis (LDA), k-Nearest Neighbors (k-NN)"
+        },
+        {
+            "question": "Which of the following is NOT a method of HIV transmission?",
+            "answer": "Shaking hands",
+            "distractor": "Kissing, Sexual Contact, Blood Transfusion"
+        },
+        {
+            "question": "Which of the following is NOT a requirement for a valid mortgage contract?",
+            "answer": "None of the above",
+            "distractor": "Lender's consent, Borrower's signature, Principal amount"
+        },
+        {
+            "question": "In the classic ethical dilemma known as the Trolley Problem, you see that by pulling a lever, you can save five people from being hit by a runaway trolley, but doing so would result in the death of one person who is tied to another track. What is the morally right action to take?",
+            "answer": "Save five",
+            "distractor": "Sacrifice the five to save one"
+        },
+        {
+            "question": "Which of the following is NOT a symptom of Conversion Disorder?",
+            "answer": "Headache",
+            "distractor": "Loss of consciousness, Paralysis, Blindness"
+        },
+        {
+            "question": "Which instrument did Huey Lewis primarily play?",
+            "answer": "harmonica",
+            "distractor": "guitar, drums, saxophone"
+        },
+        {
+            "question": "Which of the following is NOT a function of phospholipids in a cell membrane?",
+            "answer": "Structural support",
+            "distractor": "Transport of molecules, Signal transduction, Fluidity regulation"
+        },
+        {
+            "question": "Which of the following is NOT considered a form of social support in maintaining good health?",
+            "answer": "Isolation",
+            "distractor": "Companionship, Emotional Support, Instrumental Support"
+        },
+        {
+            "question": "In the classic ethical dilemma known as the Trolley Problem, you see that by pulling a lever, you can save five people from being hit by a runaway trolley, but doing so would result in the death of one person who is tied to another track. What is the morally right action to take?",
+            "answer": "Save five",
+            "distractor": "Sacrifice the five to save one"
+        },
+        {
+            "question": "Which of the following is the most common cause of bacterial meningitis in children aged under 5?",
+            "answer": "Streptococcus pneumoniae",
+            "distractor": "Haemophilus influenzae, Staphylococcus aureus, Escherichia coli"
+        },
+        {
+            "question": "Which of the following statements represents the alternative hypothesis when testing if there is a difference in means between two populations with a significance level of 0.05?",
+            "answer": "H\u2080: \u03bc\u2081 \u2260 \u03bc\u2082",
+            "distractor": "H\u2080: \u03bc\u2081 = \u03bc\u2082, H\u2081: \u03bc\u2081 > \u03bc\u2082, H\u2081: \u03bc\u2081 < \u03bc\u2082"
+        },
+        {
+            "question": "Which of the following is NOT a right guaranteed by the Miranda warning?",
+            "answer": "waiver",
+            "distractor": "silence, attorney, trial"
+        },
+        {
+            "question": "Which of the following is NOT a standard color for electrical outlets?",
+            "answer": "Green",
+            "distractor": "Blue, White, Black"
+        },
+        {
+            "question": "Which of the following is NOT a strategy used by plants to survive harsh winters?",
+            "answer": "Photosynthesis",
+            "distractor": "Hibernation, Migration, Seed Dispersal"
+        },
+        {
+            "question": "Which of the following is NOT a factor contributing to coastal erosion?",
+            "answer": "Vegetation growth",
+            "distractor": "Sea level rise, Wave action, Sediment supply"
+        },
+        {
+            "question": "Which of the following is NOT a form of energy transformation?",
+            "answer": "Stored",
+            "distractor": "Generated, Created, Converted"
+        },
+        {
+            "question": "Which of the following is the boiling point of water at standard atmospheric pressure?",
+            "answer": "100\u00b0C",
+            "distractor": "80\u00b0C, 120\u00b0C, 0\u00b0C"
+        },
+        {
+            "question": "Which of the following should you NOT use to clean your lab bench after handling acids?",
+            "answer": "Water",
+            "distractor": "Bleach, Vinegar, Ammonia"
+        },
+        {
+            "question": "Which of the following is NOT a valid way to handle evidence at a crime scene according to standard criminal justice procedures?",
+            "answer": "Tamper",
+            "distractor": "Preserve, Seal, Log"
+        },
+        {
+            "question": "What is the charge of an ion with 13 protons and 10 electrons?",
+            "answer": "Na+",
+            "distractor": "Cl-, Ca++, Fe"
+        },
+        {
+            "question": "Who discovered the ozone layer in the Earth's atmosphere?",
+            "answer": "Sherwood Rowland",
+            "distractor": "Marie Curie, James Lovelock, Svante Arrhenius"
+        },
+        {
+            "question": "Which of the following is NOT a consequence of deforestation?",
+            "answer": "increased biodiversity",
+            "distractor": "decreased carbon dioxide levels, loss of wildlife habitat, increased soil erosion"
+        },
+        {
+            "question": "Which of the following is NOT a characteristic of binomial nomenclature?",
+            "answer": "Unique",
+            "distractor": "Common, Universal, Ubiquitous"
+        },
+        {
+            "question": "Which of Earth's moons is the largest?",
+            "answer": "Moon",
+            "distractor": "Mars, Venus, Jupiter"
+        },
+        {
+            "question": "Which of the following substances will dissolve in water to form a homogeneous mixture?",
+            "answer": "sugar",
+            "distractor": "gold, salt, oil"
+        },
+        {
+            "question": "What is the first stage in the life cycle of a butterfly?",
+            "answer": "Egg",
+            "distractor": "Larva, Adult, Chrysalis"
+        },
+        {
+            "question": "Which of the following is NOT a characteristic of a tropical cyclone's eyewall?",
+            "answer": "Calm",
+            "distractor": "Strong winds, Heavy rainfall, Storm surge"
+        },
+        {
+            "question": "What is the number of protons in a neutral atom of an element with the atomic number 19?",
+            "answer": "19",
+            "distractor": "17, 20, Neutron"
+        },
+        {
+            "question": "Which of the following is the result of regional metamorphism due to tectonic forces?",
+            "answer": "Gneiss",
+            "distractor": "Schist, Quartzite, Limestone"
+        },
+        {
+            "question": "Which of the following is NOT a method used by animals for recognizing members of their own species?",
+            "answer": "Mimicry",
+            "distractor": "Imprinting, Territorial Marking, Vocalizations"
+        },
+        {
+            "question": "Which of the following is NOT a consequence of thermal stress?",
+            "answer": "Expansion",
+            "distractor": "Contraction, Warping, Shrinkage"
+        },
+        {
+            "question": "What stage of the frog life cycle is represented by a small, swimming creature with external gills?",
+            "answer": "Tadpole",
+            "distractor": "Egg,Larva,Adult"
+        },
+        {
+            "question": "Which state of matter has molecules that are far apart and move randomly, allowing objects to easily change shape?",
+            "answer": "Gas",
+            "distractor": "Solid, Liquid, Plasma"
+        },
+        {
+            "question": "Which of the following is NOT a requirement for photosynthesis?",
+            "answer": "Carbon Dioxide",
+            "distractor": "Water, Light, Temperature"
+        },
+        {
+            "question": "Which of the following is NOT a function of plant roots?",
+            "answer": "Respiration",
+            "distractor": "Photosynthesis, Absorption of Water, Growth"
+        },
+        {
+            "question": "Which of the following metals is the most malleable?",
+            "answer": "Gold",
+            "distractor": "Silver, Aluminum, Iron"
+        },
+        {
+            "question": "Which of the following is the most effective way to kill bacteria by raising temperature?",
+            "answer": "Pasteurization",
+            "distractor": "Boiling, Sterilization, Autoclaving"
+        }
+    ],
+    "prompt": [
+        {
+            "category": "Economics - Production - Output Comparison"
+        },
+        {
+            "category": "Logic - Predicate Logic - Translation"
+        },
+        {
+            "category": "Ethics - Moral Standards - Moral Dilemmas"
+        },
+        {
+            "category": "Physics - Optics - Ultraviolet Light Frequency"
+        },
+        {
+            "category": "Political Science - American Government - Congressional Committees"
+        },
+        {
+            "category": "Health - Reproductive Health - Pregnancy and Lactation"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Standards"
+        },
+        {
+            "category": "Genetics - Pedigree Analysis - Inheritance Patterns"
+        },
+        {
+            "category": "Mathematics - Algebra - Field Extensions"
+        },
+        {
+            "category": "Ethics - Morality - Moral Dilemmas"
+        },
+        {
+            "category": "Mathematics - Abstract Algebra - Group Theory"
+        },
+        {
+            "category": "Mathematics - Analysis - Continuity and Differentiability"
+        },
+        {
+            "category": "Project Management - Tools - Gantt Chart"
+        },
+        {
+            "category": "Data Science - Machine Learning - Feature Selection"
+        },
+        {
+            "category": "Health - Infectious Diseases - HIV Transmission"
+        },
+        {
+            "category": "Law - Property Law - Mortgages and Foreclosure"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Dilemmas"
+        },
+        {
+            "category": "Psychology - Mental Health - Somatoform Disorders"
+        },
+        {
+            "category": "Music - Bands - Huey Lewis and the News"
+        },
+        {
+            "category": "Science - Biology - Lipids"
+        },
+        {
+            "category": "Psychology - Health - Social Support and Health"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Dilemmas"
+        },
+        {
+            "category": "Medicine - Infectious Diseases - Pediatric Infections"
+        },
+        {
+            "category": "Statistics - Hypothesis Testing - Alternative Hypothesis"
+        },
+        {
+            "category": "Law - Constitutional Law - Miranda v. Arizona"
+        },
+        {
+            "category": "Home Improvement - Appliances - Electrical Outlets"
+        },
+        {
+            "category": "Science - Biology - Dormancy in Organisms"
+        },
+        {
+            "category": "Science - Earth Science - Coastal Climate"
+        },
+        {
+            "category": "Science - Chemistry - Energy Transformations"
+        },
+        {
+            "category": "Science - Chemistry - Boiling Point Investigation"
+        },
+        {
+            "category": "Science - Chemistry - Laboratory Safety and Procedures"
+        },
+        {
+            "category": "Law - Criminal Justice - Evidence Handling"
+        },
+        {
+            "category": "Chemistry - Atomic Structure - Ions"
+        },
+        {
+            "category": "Science - Atmospheric Science - Ozone Layer Discovery"
+        },
+        {
+            "category": "Environmental Science - Ecology - Deforestation"
+        },
+        {
+            "category": "Science - Biology - Taxonomy"
+        },
+        {
+            "category": "Science - Astronomy - Celestial Observations"
+        },
+        {
+            "category": "Science - Chemistry - Solubility"
+        },
+        {
+            "category": "Biology - Entomology - Butterfly Life Cycle"
+        },
+        {
+            "category": "Geography - Meteorology - Coastal Weather Patterns"
+        },
+        {
+            "category": "Science - Chemistry - Atomic Structure"
+        },
+        {
+            "category": "Geology - Rock Cycle - Metamorphism"
+        },
+        {
+            "category": "Biology - Animal Behavior - Recognition Adaptations"
+        },
+        {
+            "category": "Science - Physics - Thermal Stress"
+        },
+        {
+            "category": "Biology - Life Cycle - Frog Life Cycle"
+        },
+        {
+            "category": "Science - Chemistry - States of Matter"
+        },
+        {
+            "category": "Biology - Botany - Plant Growth"
+        },
+        {
+            "category": "Education - Science - Botany"
+        },
+        {
+            "category": "Science - Chemistry - Properties of Metals"
+        },
+        {
+            "category": "Science - Biology - Bacteria and Temperature"
+        }
+    ]
+}

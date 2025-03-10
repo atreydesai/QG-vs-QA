@@ -1,5 +1,5 @@
 from enum import Enum
-from enums import PromptType, GenerationStep #Import GenerationStep
+from enums import PromptType, GenerationStep
 import os
 import datasets
 import numpy as np
@@ -86,6 +86,15 @@ class DatasetWithConceptsFetcher(DataFetcher):
     def get_data(self):
         return [{'category': item['category']} for item in self.ds]
 
+class AnsweringDatasetFetcher(DataFetcher):
+    def __init__(self, dataset_name, split_name, use_choices_prompt):
+        self.ds = datasets.load_dataset(dataset_name, token=HF_TOKEN)[split_name]
+        self.use_choices_prompt = use_choices_prompt #bool
+    
+    def get_data(self):
+        column_name = 'choices_only_prompt' if self.use_choices_prompt else 'prompt'
+        return list(self.ds[column_name])
+
 class DataFetcherFactory:
 
     @staticmethod
@@ -100,8 +109,9 @@ class DataFetcherFactory:
         elif prompt_type == PromptType.category_generation:
             return MCQADatasetFetcher(args.dataset_name)
         elif prompt_type ==PromptType.tree_generation:
-            #return MCQADatasetFetcher(args.dataset_name)
-            return DatasetWithConceptsFetcher(args.dataset_name, args.inference_split) #USE new fetcher
+            return DatasetWithConceptsFetcher(args.dataset_name, args.inference_split)
+        elif prompt_type == PromptType.answering_generation:
+            return AnsweringDatasetFetcher(args.dataset_name, args.inference_split, args.use_choices_prompt)
         else:
             raise ValueError(f"Unsupported DataFetcher type: {prompt_type}")
 
@@ -113,7 +123,6 @@ class PromptCollator:
 
     def get_prompts(self, prompt_type, checkpoint_loader):
         data_fetcher = self.data_fetcher_factory.get_data_fetcher(prompt_type, self.args, checkpoint_loader)
-        # prompt_parser = self.prompt_factory.get_prompt(prompt_type) # No prompt_parser needed here for tree_generation at this level
 
         for data_item in data_fetcher.get_data(): # Iterate over data dictionaries directly
             if prompt_type == PromptType.tree_generation:

@@ -1,0 +1,406 @@
+{
+    "raw_text": [
+        {
+            "question": "If a factory produces 500 units of product A in 8 hours and 300 units of product B in 4 hours, which product has a higher output per hour?",
+            "answer": "Product A",
+            "distractor": "Product B, Both products have the same output, Neither product has a measurable output"
+        },
+        {
+            "question": "If all humans are mortal and Socrates is a human, what can be logically concluded about Socrates?",
+            "answer": "Socrates is mortal",
+            "distractor": "Socrates is immortal, Socrates is a god, Socrates is not human"
+        },
+        {
+            "question": "If a doctor discovers that a patient is terminally ill but has not informed the patient, should the doctor disclose the diagnosis, considering the patient's right to know versus the potential emotional distress it may cause?",
+            "answer": "disclose",
+            "distractor": "withhold, exaggerate, mislead"
+        },
+        {
+            "question": "If a material absorbs ultraviolet light with a frequency of 7.5 x 10^14 Hz, what is the energy of a photon of this ultraviolet light?",
+            "answer": "4.97 x 10^-19 J",
+            "distractor": "3.00 x 10^-19 J, 6.63 x 10^-19 J, 2.10 x 10^-19 J"
+        },
+        {
+            "question": "How would the legislative process be affected if congressional committees were eliminated from the lawmaking procedure?",
+            "answer": "Inefficiency",
+            "distractor": "Increased transparency, Faster decision-making, Greater public involvement"
+        },
+        {
+            "question": "If a pregnant woman is diagnosed with gestational diabetes, what dietary changes should she implement to manage her blood sugar levels effectively?",
+            "answer": "Balanced diet",
+            "distractor": "High-carb diet, Low-fat diet, Intermittent fasting"
+        },
+        {
+            "question": "In a situation where a company must choose between maximizing profits and ensuring fair labor practices, which ethical principle should guide their decision-making process?",
+            "answer": "Fairness",
+            "distractor": "Maximizing profits, Cost-cutting measures, Competitive advantage"
+        },
+        {
+            "question": "Given a pedigree chart showing a family with a history of a genetic disorder, how would you determine the inheritance pattern of the disorder?",
+            "answer": "Analyze the pedigree",
+            "distractor": "Examine the family tree, Conduct a DNA test, Review medical history"
+        },
+        {
+            "question": null,
+            "answer": "Field",
+            "distractor": "Ring, Group, Module"
+        },
+        {
+            "question": "If a doctor discovers that a patient is terminally ill and suffering greatly, should they consider assisted suicide as a viable option to alleviate the patient's suffering, despite the legal and ethical implications?",
+            "answer": "yes",
+            "distractor": "no, only if the patient requests it, only in cases of extreme pain"
+        },
+        {
+            "question": "If a group G has an order of 12, which of the following could be a possible order of a subgroup of G according to Lagrange's theorem?",
+            "answer": "1, 2, 3, 4, 6, 12",
+            "distractor": "5, 7, 8"
+        },
+        {
+            "question": "If a function f(x) is continuous at x = a and differentiable at x = a, what can be concluded about the behavior of f(x) around that point?",
+            "answer": "smooth behavior",
+            "distractor": "discontinuous behavior, abrupt changes, oscillatory behavior"
+        },
+        {
+            "question": "How can a Gantt chart be utilized to effectively manage project timelines and resource allocation in a new software development project?",
+            "answer": "visualize timelines",
+            "distractor": "track team performance, estimate project costs, identify stakeholder requirements"
+        },
+        {
+            "question": "Given a dataset with numerous features, which feature selection method would you apply to improve the performance of your machine learning model while minimizing overfitting?",
+            "answer": "Lasso Regression",
+            "distractor": "Ridge Regression, Principal Component Analysis, Decision Trees"
+        },
+        {
+            "question": "If a person is diagnosed with HIV, what precautions should they take to prevent transmission to their sexual partner?",
+            "answer": "Use condoms",
+            "distractor": "Avoid sexual activity, Use birth control pills, Rely on withdrawal method"
+        },
+        {
+            "question": "If a homeowner defaults on their mortgage payments, what is the first legal step a lender typically takes to initiate foreclosure proceedings?",
+            "answer": "Notice of Default",
+            "distractor": "Foreclosure Sale, Loan Modification, Deed in Lieu of Foreclosure"
+        },
+        {
+            "question": "If a self-driving car must choose between hitting a pedestrian or swerving and risking the life of its passenger, what ethical principle should guide its decision-making?",
+            "answer": "Utilitarianism",
+            "distractor": "Deontology, Virtue Ethics, Social Contract Theory"
+        },
+        {
+            "question": "If a patient presents with physical symptoms that cannot be fully explained by a medical condition, what is the most appropriate initial approach for a mental health professional to take in diagnosing a somatoform disorder?",
+            "answer": "Comprehensive assessment",
+            "distractor": "Immediate medication, Referral to a specialist, Suggesting lifestyle changes"
+        },
+        {
+            "question": "If you were to analyze the lyrical themes of Huey Lewis and the News' songs, which theme would you identify as most prevalent in their music?",
+            "answer": "Love",
+            "distractor": "Friendship, Adventure, Nostalgia"
+        },
+        {
+            "question": "If a cell membrane is composed primarily of phospholipids, how would the membrane's structure change if the fatty acid tails of the phospholipids were replaced with saturated fatty acids?",
+            "answer": "less fluid",
+            "distractor": "more fluid, more permeable, less flexible"
+        },
+        {
+            "question": "How might a strong social support network influence an individual's ability to cope with chronic illness?",
+            "answer": "Improved coping mechanisms",
+            "distractor": "Increased feelings of isolation, Decreased motivation to seek help, Heightened anxiety levels"
+        },
+        {
+            "question": "If a self-driving car must choose between swerving to avoid hitting a pedestrian or staying on course and risking the passenger's life, what ethical principle should guide its decision-making?",
+            "answer": "Utilitarianism",
+            "distractor": "Deontology, Virtue Ethics, Social Contract Theory"
+        },
+        {
+            "question": "A 5-year-old child presents with a high fever, sore throat, and a rash that started on the face and spread to the trunk. Based on these symptoms, which infectious disease should be considered for diagnosis?",
+            "answer": "Measles",
+            "distractor": "Chickenpox, Scarlet fever, Rubella"
+        },
+        {
+            "question": "In a clinical trial testing a new medication, if the alternative hypothesis states that the medication has a positive effect on patient recovery compared to a placebo, what does this imply about the expected outcome of the trial?",
+            "answer": "positive effect",
+            "distractor": "no effect, negative effect, equal effect"
+        },
+        {
+            "question": "If a suspect is not informed of their rights during an arrest, what legal precedent established that any statements made by the suspect may be inadmissible in court?",
+            "answer": "Miranda v. Arizona",
+            "distractor": "Gideon v. Wainwright, Mapp v. Ohio, Roe v. Wade"
+        },
+        {
+            "question": "If you need to install a new electrical outlet in a room that currently has no outlets, what is the first step you should take to ensure safety and compliance with electrical codes?",
+            "answer": "Turn off the power",
+            "distractor": "Check the voltage, Use a power strip, Install a surge protector"
+        },
+        {
+            "question": "How would you apply your understanding of dormancy in organisms to explain the survival strategies of seeds in a desert environment?",
+            "answer": "seed dormancy",
+            "distractor": "root growth, photosynthesis adaptation, water retention"
+        },
+        {
+            "question": "How would the increase in sea level due to climate change affect coastal ecosystems and human settlements?",
+            "answer": "flooding",
+            "distractor": "erosion, salinization, habitat loss"
+        },
+        {
+            "question": "If a chemical reaction releases energy in the form of heat, what type of reaction is occurring?",
+            "answer": "exothermic",
+            "distractor": "endothermic, catalytic, photochemical"
+        },
+        {
+            "question": "If you increase the atmospheric pressure, how will it affect the boiling point of water?",
+            "answer": "Increase",
+            "distractor": "Decrease, Remain the same, Fluctuate"
+        },
+        {
+            "question": "If a chemical spill occurs in the laboratory, what is the first step you should take to ensure safety?",
+            "answer": "Notify the instructor",
+            "distractor": "Clean up the spill immediately, Evacuate the laboratory, Ignore the spill and continue working"
+        },
+        {
+            "question": "In a criminal investigation, how should evidence collected at a crime scene be handled to ensure its integrity and admissibility in court?",
+            "answer": "chain of custody",
+            "distractor": "evidence tampering, improper storage, witness testimony"
+        },
+        {
+            "question": "If a neutral atom of sodium (Na) loses one electron, what is the resulting charge of the sodium ion?",
+            "answer": "positive one",
+            "distractor": "negative one, neutral, positive two"
+        },
+        {
+            "question": "Which scientist is credited with the discovery of the ozone layer and its significance in protecting Earth from harmful ultraviolet radiation?",
+            "answer": "G. M. B. Dobson",
+            "distractor": "James Lovelock, Paul Crutzen, Mario Molina"
+        },
+        {
+            "question": "If a region experiences significant deforestation, what immediate ecological impact is most likely to occur in the local environment?",
+            "answer": "loss of biodiversity",
+            "distractor": "increased soil fertility, enhanced carbon sequestration, improved water quality"
+        },
+        {
+            "question": "Given a new organism discovered in a rainforest, how would you classify it using the Linnaean system of taxonomy?",
+            "answer": "Genus",
+            "distractor": "Species, Family, Order"
+        },
+        {
+            "question": "If a star is observed to have a parallax shift of 0.1 arcseconds, what is the approximate distance to the star in parsecs?",
+            "answer": "10 parsecs",
+            "distractor": "5 parsecs, 20 parsecs, 15 parsecs"
+        },
+        {
+            "question": "If you have a saturated solution of sodium chloride at room temperature, how would you increase the solubility of the salt in the solution?",
+            "answer": "Increase temperature",
+            "distractor": "Decrease pressure, Add more salt, Stir the solution"
+        },
+        {
+            "question": "If a butterfly's life cycle is disrupted during the pupal stage, what stage will it fail to develop into?",
+            "answer": "adult",
+            "distractor": "larva, egg, caterpillar"
+        },
+        {
+            "question": "How would you apply your understanding of coastal weather patterns to predict the likelihood of a storm developing in a coastal region during the summer months?",
+            "answer": "storm prediction",
+            "distractor": "temperature fluctuations, humidity levels, wind direction"
+        },
+        {
+            "question": "If an atom has 6 protons and 6 neutrons, what is its atomic number and what element does it represent?",
+            "answer": "Carbon",
+            "distractor": "Oxygen, Nitrogen, Helium"
+        },
+        {
+            "question": "If a sedimentary rock is subjected to high pressure and temperature deep within the Earth's crust, what type of rock will it most likely transform into?",
+            "answer": "metamorphic rock",
+            "distractor": "igneous rock, sedimentary rock, volcanic rock"
+        },
+        {
+            "question": "How do recognition adaptations in animals enhance their survival in their natural habitats?",
+            "answer": "identification of kin",
+            "distractor": "mimicry of predators, camouflage in environments, social bonding with unrelated species"
+        },
+        {
+            "question": "How would you calculate the thermal stress experienced by a metal rod that is subjected to a temperature increase, given its original length, coefficient of thermal expansion, and Young's modulus?",
+            "answer": "\u0394T \u00d7 E \u00d7 \u03b1 \u00d7 L",
+            "distractor": "\u0394T \u00d7 E \u00d7 \u03b2 \u00d7 L, \u0394T \u00d7 E \u00d7 \u03b1 \u00d7 A, \u0394T \u00d7 E \u00d7 \u03b1 \u00d7 V"
+        },
+        {
+            "question": "If a frog's eggs are laid in water and develop into tadpoles, what environmental conditions must be maintained to ensure successful metamorphosis into adult frogs?",
+            "answer": "Aquatic environment",
+            "distractor": "Dry land, High altitude, Cold temperatures"
+        },
+        {
+            "question": "If a gas is compressed into a smaller volume while maintaining a constant temperature, what will happen to its pressure according to Boyle's Law?",
+            "answer": "increase",
+            "distractor": "decrease, remain the same, fluctuate"
+        },
+        {
+            "question": "If a plant is not receiving enough sunlight, what method can be applied to enhance its growth?",
+            "answer": "Supplemental lighting",
+            "distractor": "Increased watering, Fertilizer application, Soil aeration"
+        },
+        {
+            "question": "If a plant is not receiving enough sunlight, what method can you apply to ensure it receives adequate light for photosynthesis?",
+            "answer": "Relocate",
+            "distractor": "Water more frequently, Increase soil nutrients, Prune the leaves"
+        },
+        {
+            "question": "If a metal has a high melting point and is a good conductor of electricity, which property of metals does this exemplify?",
+            "answer": "Conductivity",
+            "distractor": "Malleability, Ductility, Reactivity"
+        },
+        {
+            "question": "How would you expect the growth rate of a mesophilic bacterium to change if the temperature is increased from 30\u00b0C to 45\u00b0C?",
+            "answer": "decrease",
+            "distractor": "increase, remain the same, fluctuate"
+        }
+    ],
+    "prompt": [
+        {
+            "category": "Economics - Production - Output Comparison"
+        },
+        {
+            "category": "Logic - Predicate Logic - Translation"
+        },
+        {
+            "category": "Ethics - Moral Standards - Moral Dilemmas"
+        },
+        {
+            "category": "Physics - Optics - Ultraviolet Light Frequency"
+        },
+        {
+            "category": "Political Science - American Government - Congressional Committees"
+        },
+        {
+            "category": "Health - Reproductive Health - Pregnancy and Lactation"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Standards"
+        },
+        {
+            "category": "Genetics - Pedigree Analysis - Inheritance Patterns"
+        },
+        {
+            "category": "Mathematics - Algebra - Field Extensions"
+        },
+        {
+            "category": "Ethics - Morality - Moral Dilemmas"
+        },
+        {
+            "category": "Mathematics - Abstract Algebra - Group Theory"
+        },
+        {
+            "category": "Mathematics - Analysis - Continuity and Differentiability"
+        },
+        {
+            "category": "Project Management - Tools - Gantt Chart"
+        },
+        {
+            "category": "Data Science - Machine Learning - Feature Selection"
+        },
+        {
+            "category": "Health - Infectious Diseases - HIV Transmission"
+        },
+        {
+            "category": "Law - Property Law - Mortgages and Foreclosure"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Dilemmas"
+        },
+        {
+            "category": "Psychology - Mental Health - Somatoform Disorders"
+        },
+        {
+            "category": "Music - Bands - Huey Lewis and the News"
+        },
+        {
+            "category": "Science - Biology - Lipids"
+        },
+        {
+            "category": "Psychology - Health - Social Support and Health"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Dilemmas"
+        },
+        {
+            "category": "Medicine - Infectious Diseases - Pediatric Infections"
+        },
+        {
+            "category": "Statistics - Hypothesis Testing - Alternative Hypothesis"
+        },
+        {
+            "category": "Law - Constitutional Law - Miranda v. Arizona"
+        },
+        {
+            "category": "Home Improvement - Appliances - Electrical Outlets"
+        },
+        {
+            "category": "Science - Biology - Dormancy in Organisms"
+        },
+        {
+            "category": "Science - Earth Science - Coastal Climate"
+        },
+        {
+            "category": "Science - Chemistry - Energy Transformations"
+        },
+        {
+            "category": "Science - Chemistry - Boiling Point Investigation"
+        },
+        {
+            "category": "Science - Chemistry - Laboratory Safety and Procedures"
+        },
+        {
+            "category": "Law - Criminal Justice - Evidence Handling"
+        },
+        {
+            "category": "Chemistry - Atomic Structure - Ions"
+        },
+        {
+            "category": "Science - Atmospheric Science - Ozone Layer Discovery"
+        },
+        {
+            "category": "Environmental Science - Ecology - Deforestation"
+        },
+        {
+            "category": "Science - Biology - Taxonomy"
+        },
+        {
+            "category": "Science - Astronomy - Celestial Observations"
+        },
+        {
+            "category": "Science - Chemistry - Solubility"
+        },
+        {
+            "category": "Biology - Entomology - Butterfly Life Cycle"
+        },
+        {
+            "category": "Geography - Meteorology - Coastal Weather Patterns"
+        },
+        {
+            "category": "Science - Chemistry - Atomic Structure"
+        },
+        {
+            "category": "Geology - Rock Cycle - Metamorphism"
+        },
+        {
+            "category": "Biology - Animal Behavior - Recognition Adaptations"
+        },
+        {
+            "category": "Science - Physics - Thermal Stress"
+        },
+        {
+            "category": "Biology - Life Cycle - Frog Life Cycle"
+        },
+        {
+            "category": "Science - Chemistry - States of Matter"
+        },
+        {
+            "category": "Biology - Botany - Plant Growth"
+        },
+        {
+            "category": "Education - Science - Botany"
+        },
+        {
+            "category": "Science - Chemistry - Properties of Metals"
+        },
+        {
+            "category": "Science - Biology - Bacteria and Temperature"
+        }
+    ]
+}

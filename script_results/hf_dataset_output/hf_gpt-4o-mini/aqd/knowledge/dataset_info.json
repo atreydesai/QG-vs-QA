@@ -1,0 +1,54 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "dataset": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "distractors": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "correct_answer": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "category": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "prompt": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "choices_only_prompt": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "fact": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "answer_question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "choices": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}

@@ -1,0 +1,406 @@
+{
+    "raw_text": [
+        {
+            "question": "Which of the following is NOT a measure of economic output?",
+            "answer": "Transfer Payments",
+            "distractor": "Investment, Consumption, Transfer Payments"
+        },
+        {
+            "question": "Which of the following is the translation of the existential quantifier in predicate logic?",
+            "answer": "There exists",
+            "distractor": "For all, Not exists, Universal"
+        },
+        {
+            "question": "Which of the following is NOT a principle of Immanuel Kant's Categorical Imperative?",
+            "answer": "Lies",
+            "distractor": "Honesty, Beneficence, Self-Preservation"
+        },
+        {
+            "question": "What is the frequency range of Ultraviolet Light?",
+            "answer": "10^14 Hz",
+            "distractor": "10^12 Hz, Visible Light Range, Infrared Radiation"
+        },
+        {
+            "question": "Which committee is responsible for overseeing the budget of the United States government?",
+            "answer": "Budget Committee",
+            "distractor": "Appropriations Committee, Armed Services Committee, Rules Committee"
+        },
+        {
+            "question": "Which hormone stimulates the production of milk in breastfeeding mothers?",
+            "answer": "Oxytocin",
+            "distractor": "Progesterone, Insulin, Cortisol"
+        },
+        {
+            "question": "Which of Aristotle's ethical theories focuses on the pursuit of virtue and the avoidance of vice?",
+            "answer": "Virtue Ethics",
+            "distractor": "Deontological Ethics, Utilitarianism, Social Contract Theory"
+        },
+        {
+            "question": "What is the term used to describe the pattern of inheritance where an affected parent passes the trait to their child of the opposite sex?",
+            "answer": "X-linked recessive",
+            "distractor": "Autosomal dominant, Autosomal recessive, Mitochondrial inheritance"
+        },
+        {
+            "question": "What is the degree of the extension of the field of rational numbers (Q) by the square root of -1 (i)?",
+            "answer": "2",
+            "distractor": "3, 4, \u221a2"
+        },
+        {
+            "question": "Which ethical theory holds that actions are right or wrong based on their consequences?",
+            "answer": "Utilitarianism",
+            "distractor": "Deontology, Virtue Ethics, Social Contract Theory"
+        },
+        {
+            "question": "What is the inverse of an element in a group?",
+            "answer": "Inverse",
+            "distractor": "Identity, Neutral Element, Zero"
+        },
+        {
+            "question": "Which of the following functions is NOT continuous at x = 0?",
+            "answer": "f(x) = 1/x",
+            "distractor": "f(x) = x, f(x) = |x|, f(x) = sin(x)"
+        },
+        {
+            "question": "Which of the following is NOT a component typically included in a Gantt Chart?",
+            "answer": "Milestones",
+            "distractor": "Dependencies, Tasks, Duration"
+        },
+        {
+            "question": "Which of the following is NOT a common technique used for feature selection in machine learning?",
+            "answer": "Random Forest",
+            "distractor": "Principal Component Analysis, Linear Regression, Logistic Regression"
+        },
+        {
+            "question": "Which of the following is NOT a mode of HIV transmission?",
+            "answer": "Shaking Hands",
+            "distractor": "Kissing, Sexual Contact, Blood Contact"
+        },
+        {
+            "question": "Which of the following is NOT a requirement for a valid mortgage contract?",
+            "answer": "None of the above",
+            "distractor": "Lender's consent, Borrower's signature, Principal amount"
+        },
+        {
+            "question": "Which ethical theory holds that actions are right or wrong based on their consequences?",
+            "answer": "Utilitarianism",
+            "distractor": "Deontology, Virtue Ethics, Social Contract Theory"
+        },
+        {
+            "question": "Which of the following is NOT a somatoform disorder?",
+            "answer": "Headache",
+            "distractor": "Hypochondria, Conversion Disorder, Psychogenic Pain Disorder"
+        },
+        {
+            "question": "Who is the lead singer of Huey Lewis and the News?",
+            "answer": "Huey Lewis",
+            "distractor": "Elton John, Mick Jagger, Freddie Mercury"
+        },
+        {
+            "question": "Which of the following is NOT a type of lipid?",
+            "answer": "Protein",
+            "distractor": "Triglyceride, Phospholipid, Steroid"
+        },
+        {
+            "question": "Which of the following is NOT considered a type of social support?",
+            "answer": "Rejection",
+            "distractor": "Encouragement, Emotional Support, Instrumental Support"
+        },
+        {
+            "question": "Which ethical theory holds that actions are right or wrong based on their consequences?",
+            "answer": "Utilitarianism",
+            "distractor": "Deontology, Virtue Ethics, Social Contract Theory"
+        },
+        {
+            "question": "Which of the following is NOT a common symptom of measles in children?",
+            "answer": "Abdominal pain",
+            "distractor": "Diarrhea, Fever, Rash"
+        },
+        {
+            "question": "Which of the following is NOT an example of an alternative hypothesis in hypothesis testing?",
+            "answer": "Null Hypothesis",
+            "distractor": "Equal Variance, Two-Tailed Test, Reject Null Hypothesis"
+        },
+        {
+            "question": "Which Supreme Court case established the right to an attorney during custodial interrogation and the requirement for police to inform suspects of their rights?",
+            "answer": "Miranda v. Arizona",
+            "distractor": "Gideon v. Wainwright, Escobedo v. Illinois, Breithaupt v. Abram"
+        },
+        {
+            "question": "Which of the following is NOT a standard color for electrical outlets?",
+            "answer": "Green",
+            "distractor": "Blue, White, Black"
+        },
+        {
+            "question": "Which of the following is NOT a strategy used by plants to survive harsh winters?",
+            "answer": "Photosynthesis",
+            "distractor": "Hibernation, Migration, Seed Dispersal"
+        },
+        {
+            "question": "Which of Earth's oceans is most affected by coastal climate change?",
+            "answer": "Atlantic",
+            "distractor": "Pacific, Indian, Arctic"
+        },
+        {
+            "question": "What is the primary product of photosynthesis?",
+            "answer": "Glucose",
+            "distractor": "Carbon Dioxide, Oxygen, Water"
+        },
+        {
+            "question": "What is the boiling point of water at standard atmospheric pressure?",
+            "answer": "100\u00b0C",
+            "distractor": "120\u00b0C, 80\u00b0C, 95\u00b0C"
+        },
+        {
+            "question": "Which of the following should NOT be stored near heat sources?",
+            "answer": "bleach",
+            "distractor": "acetone, hydrochloric acid, sodium hydroxide"
+        },
+        {
+            "question": "Which of the following is NOT a valid method of preserving the chain of custody in evidence handling?",
+            "answer": "Neglecting",
+            "distractor": "Ignoring, Misplacing, Destroying"
+        },
+        {
+            "question": "Which of the following is NOT an ion formed by the loss of electrons from a neutral atom?",
+            "answer": "Neutron",
+            "distractor": "Proton,Electron,Cation"
+        },
+        {
+            "question": "Who discovered the ozone layer?",
+            "answer": "Sherwood Rowland",
+            "distractor": "Marie Curie, James Lovelock, Svante Arrhenius"
+        },
+        {
+            "question": "Which of the following is NOT a consequence of deforestation?",
+            "answer": "increased biodiversity",
+            "distractor": "decreased carbon dioxide levels, loss of wildlife habitat, increased soil erosion"
+        },
+        {
+            "question": "Which of the following is NOT a kingdom in the traditional taxonomic classification of organisms?",
+            "answer": "Plants",
+            "distractor": "Prokaryotes, Fungi, Animals"
+        },
+        {
+            "question": "What is the brightest star visible from Earth?",
+            "answer": "Sirius",
+            "distractor": "Pollux, Rigel, Capella"
+        },
+        {
+            "question": "Which of the following substances is soluble in water?",
+            "answer": "Sodium Chloride",
+            "distractor": "Magnesium, Iron, Gold"
+        },
+        {
+            "question": "What is the first stage in the life cycle of a butterfly?",
+            "answer": "Egg",
+            "distractor": "Larva, Adult, Chrysalis"
+        },
+        {
+            "question": "Which of the following is NOT a characteristic of a tropical cyclone?",
+            "answer": "Calm",
+            "distractor": "Strong Winds, Heavy Rain, Storm Surge"
+        },
+        {
+            "question": "What is the number of protons in a neutral atom?",
+            "answer": "Protons",
+            "distractor": "Electrons,Nucleons,Neutrons"
+        },
+        {
+            "question": "Which of the following processes is responsible for the formation of gneiss from shale?",
+            "answer": "Regional metamorphism",
+            "distractor": "Contact metamorphism, Dynamic metamorphism, Foliation"
+        },
+        {
+            "question": "Which of the following is NOT a recognition adaptation in animal behavior?",
+            "answer": "Camouflage",
+            "distractor": "Migration, Territorial Marking, Mimicry"
+        },
+        {
+            "question": "What is the primary effect of thermal stress on a material?",
+            "answer": "Expansion",
+            "distractor": "Contraction, Shrinkage, Cooling"
+        },
+        {
+            "question": "What is the first stage in the life cycle of a frog?",
+            "answer": "Tadpole",
+            "distractor": "Egg,Adult,Froglet"
+        },
+        {
+            "question": "Which of the following is NOT a state of matter?",
+            "answer": "Plasma",
+            "distractor": "Solid, Liquid, Gas"
+        },
+        {
+            "question": "What is the primary process by which plants manufacture their own food?",
+            "answer": "Photosynthesis",
+            "distractor": "Respiration, Pollination, Germination"
+        },
+        {
+            "question": "What is the process by which plants manufacture their own food?",
+            "answer": "Photosynthesis",
+            "distractor": "Respiration, Germination, Pollination"
+        },
+        {
+            "question": "Which of the following is NOT a property of metals?",
+            "answer": "Insulator",
+            "distractor": "Conductor, Magnetic, Malleable"
+        },
+        {
+            "question": "Which of the following is the optimal temperature range for the growth of most bacteria?",
+            "answer": "mesophilic",
+            "distractor": "psychrophilic, thermophilic, hyperthermophilic"
+        }
+    ],
+    "prompt": [
+        {
+            "category": "Economics - Production - Output Comparison"
+        },
+        {
+            "category": "Logic - Predicate Logic - Translation"
+        },
+        {
+            "category": "Ethics - Moral Standards - Moral Dilemmas"
+        },
+        {
+            "category": "Physics - Optics - Ultraviolet Light Frequency"
+        },
+        {
+            "category": "Political Science - American Government - Congressional Committees"
+        },
+        {
+            "category": "Health - Reproductive Health - Pregnancy and Lactation"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Standards"
+        },
+        {
+            "category": "Genetics - Pedigree Analysis - Inheritance Patterns"
+        },
+        {
+            "category": "Mathematics - Algebra - Field Extensions"
+        },
+        {
+            "category": "Ethics - Morality - Moral Dilemmas"
+        },
+        {
+            "category": "Mathematics - Abstract Algebra - Group Theory"
+        },
+        {
+            "category": "Mathematics - Analysis - Continuity and Differentiability"
+        },
+        {
+            "category": "Project Management - Tools - Gantt Chart"
+        },
+        {
+            "category": "Data Science - Machine Learning - Feature Selection"
+        },
+        {
+            "category": "Health - Infectious Diseases - HIV Transmission"
+        },
+        {
+            "category": "Law - Property Law - Mortgages and Foreclosure"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Dilemmas"
+        },
+        {
+            "category": "Psychology - Mental Health - Somatoform Disorders"
+        },
+        {
+            "category": "Music - Bands - Huey Lewis and the News"
+        },
+        {
+            "category": "Science - Biology - Lipids"
+        },
+        {
+            "category": "Psychology - Health - Social Support and Health"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Dilemmas"
+        },
+        {
+            "category": "Medicine - Infectious Diseases - Pediatric Infections"
+        },
+        {
+            "category": "Statistics - Hypothesis Testing - Alternative Hypothesis"
+        },
+        {
+            "category": "Law - Constitutional Law - Miranda v. Arizona"
+        },
+        {
+            "category": "Home Improvement - Appliances - Electrical Outlets"
+        },
+        {
+            "category": "Science - Biology - Dormancy in Organisms"
+        },
+        {
+            "category": "Science - Earth Science - Coastal Climate"
+        },
+        {
+            "category": "Science - Chemistry - Energy Transformations"
+        },
+        {
+            "category": "Science - Chemistry - Boiling Point Investigation"
+        },
+        {
+            "category": "Science - Chemistry - Laboratory Safety and Procedures"
+        },
+        {
+            "category": "Law - Criminal Justice - Evidence Handling"
+        },
+        {
+            "category": "Chemistry - Atomic Structure - Ions"
+        },
+        {
+            "category": "Science - Atmospheric Science - Ozone Layer Discovery"
+        },
+        {
+            "category": "Environmental Science - Ecology - Deforestation"
+        },
+        {
+            "category": "Science - Biology - Taxonomy"
+        },
+        {
+            "category": "Science - Astronomy - Celestial Observations"
+        },
+        {
+            "category": "Science - Chemistry - Solubility"
+        },
+        {
+            "category": "Biology - Entomology - Butterfly Life Cycle"
+        },
+        {
+            "category": "Geography - Meteorology - Coastal Weather Patterns"
+        },
+        {
+            "category": "Science - Chemistry - Atomic Structure"
+        },
+        {
+            "category": "Geology - Rock Cycle - Metamorphism"
+        },
+        {
+            "category": "Biology - Animal Behavior - Recognition Adaptations"
+        },
+        {
+            "category": "Science - Physics - Thermal Stress"
+        },
+        {
+            "category": "Biology - Life Cycle - Frog Life Cycle"
+        },
+        {
+            "category": "Science - Chemistry - States of Matter"
+        },
+        {
+            "category": "Biology - Botany - Plant Growth"
+        },
+        {
+            "category": "Education - Science - Botany"
+        },
+        {
+            "category": "Science - Chemistry - Properties of Metals"
+        },
+        {
+            "category": "Science - Biology - Bacteria and Temperature"
+        }
+    ]
+}

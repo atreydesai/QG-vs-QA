@@ -1,0 +1,57 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "mmlu_arc_categories",
+  "dataset_size": 3469,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/atreydesai/mmlu_arc_categories@764b7690dbb2af52e7f8bdd946a0222bbbd3c03b/data/test-00000-of-00001.parquet": {
+      "num_bytes": 6628,
+      "checksum": null
+    }
+  },
+  "download_size": 6628,
+  "features": {
+    "dataset": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "distractors": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "correct_answer": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "category": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 10097,
+  "splits": {
+    "test": {
+      "name": "test",
+      "num_bytes": 3469,
+      "num_examples": 10,
+      "dataset_name": "mmlu_arc_categories"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

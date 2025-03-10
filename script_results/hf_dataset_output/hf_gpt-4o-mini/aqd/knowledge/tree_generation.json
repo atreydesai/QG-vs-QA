@@ -1,0 +1,406 @@
+{
+    "raw_text": [
+        {
+            "answer": "Productivity",
+            "question": "What term is used to describe the efficiency of production in terms of output per unit of input?",
+            "distractor": "Profitability, Capacity, Utilization"
+        },
+        {
+            "answer": "\u2200x (P(x) \u2192 Q(x))",
+            "question": "What is the formal representation of 'For all x, if P of x then Q of x' in predicate logic?",
+            "distractor": "\u2203x (P(x) \u2227 Q(x)), \u2200x (P(x) \u2227 Q(x)), \u2203x (P(x) \u2192 Q(x))"
+        },
+        {
+            "answer": "Integrity",
+            "question": "What term describes the quality of being honest and having strong moral principles, often considered essential in ethical decision-making?",
+            "distractor": "Compromise, Ambivalence, Deceit"
+        },
+        {
+            "answer": "high frequency",
+            "question": "What term describes the frequency of ultraviolet light in the electromagnetic spectrum?",
+            "distractor": "low frequency, medium frequency, infrared frequency"
+        },
+        {
+            "answer": "Standing Committees",
+            "question": "What type of committees in the U.S. Congress are permanent and focus on specific areas of legislation?",
+            "distractor": "Select Committees, Joint Committees, Ad Hoc Committees"
+        },
+        {
+            "answer": "Trimester",
+            "question": "What is the term used to describe each of the three distinct phases of pregnancy?",
+            "distractor": "Stage, Cycle, Period"
+        },
+        {
+            "answer": "Integrity",
+            "question": "What term refers to the quality of being honest and having strong moral principles, often considered a fundamental moral standard?",
+            "distractor": "Loyalty, Empathy, Altruism"
+        },
+        {
+            "answer": "Autosomal Dominant",
+            "question": "What is the inheritance pattern characterized by the presence of a trait in every generation, where only one copy of the mutated gene is sufficient to express the trait?",
+            "distractor": "Autosomal Recessive, X-Linked Dominant, Mitochondrial Inheritance"
+        },
+        {
+            "answer": "Algebraic Closure",
+            "question": "What is the term for the smallest field extension of a given field that contains all the roots of its polynomial equations?",
+            "distractor": "Finite Field, Algebraic Field, Rational Field"
+        },
+        {
+            "answer": "Utilitarianism",
+            "question": "What ethical theory evaluates the morality of actions based on their outcomes and aims to maximize overall happiness?",
+            "distractor": "Deontology, Virtue Ethics, Social Contract Theory"
+        },
+        {
+            "answer": "Group",
+            "question": "What is the term used to describe a set equipped with an operation that satisfies closure, associativity, identity, and invertibility in abstract algebra?",
+            "distractor": "Ring, Field, Module"
+        },
+        {
+            "answer": "Continuous",
+            "question": "What term describes a function that does not have any breaks, jumps, or holes in its graph?",
+            "distractor": "Discontinuous, Non-differentiable, Piecewise"
+        },
+        {
+            "answer": "Gantt Chart",
+            "question": "What is the name of the project management tool that visually represents a project schedule using bars to show task durations?",
+            "distractor": "Kanban Board, PERT Chart, Scrum Board"
+        },
+        {
+            "answer": "Lasso Regression",
+            "question": "What feature selection technique uses L1 regularization to enhance model performance by shrinking some coefficients to zero?",
+            "distractor": "Ridge Regression, Principal Component Analysis, Decision Trees"
+        },
+        {
+            "answer": "unprotected sex",
+            "question": "What is the primary mode of HIV transmission among adults?",
+            "distractor": "sharing needles, blood transfusions, mother-to-child transmission"
+        },
+        {
+            "answer": "Foreclosure",
+            "question": "What is the legal process by which a lender takes possession of a property due to the borrower's failure to make mortgage payments?",
+            "distractor": "Repossession, Eviction, Liquidation"
+        },
+        {
+            "answer": "Utilitarianism",
+            "question": "What ethical theory evaluates the morality of actions based on their outcomes and the greatest good for the greatest number?",
+            "distractor": "Deontology, Virtue Ethics, Ethical Egoism"
+        },
+        {
+            "answer": "conversion disorder",
+            "question": "What is the term for a somatoform disorder characterized by the presence of neurological symptoms that cannot be explained by medical conditions?",
+            "distractor": "hypochondriasis, body dysmorphic disorder, factitious disorder"
+        },
+        {
+            "answer": "The Power of Love",
+            "question": "What is the title of the hit song by Huey Lewis and the News that was featured in the movie 'Back to the Future'?",
+            "distractor": "Back in Time, I Want a New Drug, Do You Believe in Love"
+        },
+        {
+            "answer": "Triglycerides",
+            "question": "What type of lipid is primarily used for energy storage in the body?",
+            "distractor": "Phospholipids, Steroids, Waxes"
+        },
+        {
+            "answer": "Emotional support",
+            "question": "What type of social support involves providing empathy, care, and love to an individual?",
+            "distractor": "Informational support, Tangible support, Instrumental support"
+        },
+        {
+            "answer": "Utilitarianism",
+            "question": "What ethical theory evaluates the morality of actions based on their outcomes and aims to maximize overall happiness?",
+            "distractor": "Deontology, Virtue Ethics, Social Contract Theory"
+        },
+        {
+            "answer": "Hand, foot, and mouth disease",
+            "question": "What is the name of the viral infection commonly affecting children, characterized by sores in the mouth and a rash on the hands and feet?",
+            "distractor": "Chickenpox, Scarlet fever, Fifth disease"
+        },
+        {
+            "answer": "H1",
+            "question": "What is the symbol commonly used to represent the alternative hypothesis in hypothesis testing?",
+            "distractor": "H0, H2, HA"
+        },
+        {
+            "answer": "Miranda rights",
+            "question": "What are the rights that must be read to a suspect upon arrest, as established in the case Miranda v. Arizona?",
+            "distractor": "due process rights, right to a fair trial, right to remain silent"
+        },
+        {
+            "answer": "GFCI",
+            "question": "What type of electrical outlet is designed to protect against ground faults and prevent electrical shock?",
+            "distractor": "AFCI, Standard Outlet, USB Outlet"
+        },
+        {
+            "answer": "Dormancy",
+            "question": "What is the term for a period of inactivity in organisms, often used as a survival strategy during unfavorable conditions?",
+            "distractor": "Hibernation, Metabolism, Migration"
+        },
+        {
+            "answer": "Tides",
+            "question": "What term describes the regular rise and fall of sea levels caused by the gravitational forces of the moon and sun?",
+            "distractor": "Currents, Waves, Storm Surges"
+        },
+        {
+            "answer": "Photosynthesis",
+            "question": "What is the process by which green plants convert sunlight into chemical energy?",
+            "distractor": "Respiration, Fermentation, Combustion"
+        },
+        {
+            "answer": "Temperature",
+            "question": "What is the physical property that determines the boiling point of a substance?",
+            "distractor": "Pressure, Density, Volume"
+        },
+        {
+            "answer": "PPE",
+            "question": "What does PPE stand for in the context of laboratory safety?",
+            "distractor": "Personal Protection Equipment, Professional Protective Essentials, Primary Protective Elements"
+        },
+        {
+            "answer": "Chain of custody",
+            "question": "What is the term used to describe the process of maintaining and documenting the handling of evidence in a criminal investigation?",
+            "distractor": "Evidence preservation, Forensic analysis, Crime scene protocol"
+        },
+        {
+            "answer": "Cation",
+            "question": "What is the term for a positively charged ion?",
+            "distractor": "Anion, Isotope, Molecule"
+        },
+        {
+            "answer": "Chappuis",
+            "question": "Who is credited with the discovery of the Chappuis band in the ozone layer?",
+            "distractor": "Huggins, Dobson, Mie"
+        },
+        {
+            "answer": "Habitat loss",
+            "question": "What is the primary consequence of deforestation on wildlife populations?",
+            "distractor": "Increased biodiversity, Enhanced food sources, Improved air quality"
+        },
+        {
+            "answer": "Species",
+            "question": "What is the basic unit of classification in biological taxonomy?",
+            "distractor": "Genus, Family, Order"
+        },
+        {
+            "answer": "Telescope",
+            "question": "What instrument is commonly used to observe distant celestial objects in astronomy?",
+            "distractor": "Microscope, Spectrometer, Barometer"
+        },
+        {
+            "answer": "solvent",
+            "question": "What is the term for a substance that dissolves a solute to form a solution?",
+            "distractor": "solute, suspension, precipitate"
+        },
+        {
+            "answer": "Metamorphosis",
+            "question": "What is the process called that butterflies undergo to transform from larvae to adults?",
+            "distractor": "Cocooning, Hibernation, Pollination"
+        },
+        {
+            "answer": "Sea Breeze",
+            "question": "What is the term for the cool breeze that blows from the sea towards the land during the day due to temperature differences?",
+            "distractor": "Land Breeze, Monsoon, Trade Wind"
+        },
+        {
+            "answer": "Electron",
+            "question": "What subatomic particle has a negative charge and orbits the nucleus of an atom?",
+            "distractor": "Proton, Neutron, Positron"
+        },
+        {
+            "answer": "Schist",
+            "question": "What type of metamorphic rock is characterized by its foliated texture and is often formed from the alteration of shale?",
+            "distractor": "Gneiss, Marble, Slate"
+        },
+        {
+            "answer": "Camouflage",
+            "question": "What is the term for the adaptation that allows animals to blend in with their environment to avoid detection?",
+            "distractor": "Mimicry, Warning coloration, Social signaling"
+        },
+        {
+            "answer": "Thermal expansion",
+            "question": "What is the phenomenon called when materials expand in response to an increase in temperature?",
+            "distractor": "Thermal contraction, Phase transition, Thermal conductivity"
+        },
+        {
+            "answer": "Tadpole",
+            "question": "What is the larval stage of a frog called?",
+            "distractor": "Froglet, Adult frog, Egg"
+        },
+        {
+            "answer": "Solid",
+            "question": "What is the state of matter characterized by a definite shape and volume?",
+            "distractor": "Liquid, Gas, Plasma"
+        },
+        {
+            "answer": "Photosynthesis",
+            "question": "What is the process by which green plants convert sunlight into chemical energy?",
+            "distractor": "Respiration, Germination, Transpiration"
+        },
+        {
+            "answer": "Photosynthesis",
+            "question": "What is the process by which green plants convert sunlight into chemical energy?",
+            "distractor": "Respiration, Germination, Transpiration"
+        },
+        {
+            "answer": "Conductivity",
+            "question": "What property of metals allows them to efficiently transfer heat and electricity?",
+            "distractor": "Malleability, Ductility, Luster"
+        },
+        {
+            "answer": "thermophiles",
+            "question": "What term is used to describe bacteria that thrive at high temperatures?",
+            "distractor": "psychrophiles, mesophiles, halophiles"
+        }
+    ],
+    "prompt": [
+        {
+            "category": "Economics - Production - Output Comparison"
+        },
+        {
+            "category": "Logic - Predicate Logic - Translation"
+        },
+        {
+            "category": "Ethics - Moral Standards - Moral Dilemmas"
+        },
+        {
+            "category": "Physics - Optics - Ultraviolet Light Frequency"
+        },
+        {
+            "category": "Political Science - American Government - Congressional Committees"
+        },
+        {
+            "category": "Health - Reproductive Health - Pregnancy and Lactation"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Standards"
+        },
+        {
+            "category": "Genetics - Pedigree Analysis - Inheritance Patterns"
+        },
+        {
+            "category": "Mathematics - Algebra - Field Extensions"
+        },
+        {
+            "category": "Ethics - Morality - Moral Dilemmas"
+        },
+        {
+            "category": "Mathematics - Abstract Algebra - Group Theory"
+        },
+        {
+            "category": "Mathematics - Analysis - Continuity and Differentiability"
+        },
+        {
+            "category": "Project Management - Tools - Gantt Chart"
+        },
+        {
+            "category": "Data Science - Machine Learning - Feature Selection"
+        },
+        {
+            "category": "Health - Infectious Diseases - HIV Transmission"
+        },
+        {
+            "category": "Law - Property Law - Mortgages and Foreclosure"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Dilemmas"
+        },
+        {
+            "category": "Psychology - Mental Health - Somatoform Disorders"
+        },
+        {
+            "category": "Music - Bands - Huey Lewis and the News"
+        },
+        {
+            "category": "Science - Biology - Lipids"
+        },
+        {
+            "category": "Psychology - Health - Social Support and Health"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Dilemmas"
+        },
+        {
+            "category": "Medicine - Infectious Diseases - Pediatric Infections"
+        },
+        {
+            "category": "Statistics - Hypothesis Testing - Alternative Hypothesis"
+        },
+        {
+            "category": "Law - Constitutional Law - Miranda v. Arizona"
+        },
+        {
+            "category": "Home Improvement - Appliances - Electrical Outlets"
+        },
+        {
+            "category": "Science - Biology - Dormancy in Organisms"
+        },
+        {
+            "category": "Science - Earth Science - Coastal Climate"
+        },
+        {
+            "category": "Science - Chemistry - Energy Transformations"
+        },
+        {
+            "category": "Science - Chemistry - Boiling Point Investigation"
+        },
+        {
+            "category": "Science - Chemistry - Laboratory Safety and Procedures"
+        },
+        {
+            "category": "Law - Criminal Justice - Evidence Handling"
+        },
+        {
+            "category": "Chemistry - Atomic Structure - Ions"
+        },
+        {
+            "category": "Science - Atmospheric Science - Ozone Layer Discovery"
+        },
+        {
+            "category": "Environmental Science - Ecology - Deforestation"
+        },
+        {
+            "category": "Science - Biology - Taxonomy"
+        },
+        {
+            "category": "Science - Astronomy - Celestial Observations"
+        },
+        {
+            "category": "Science - Chemistry - Solubility"
+        },
+        {
+            "category": "Biology - Entomology - Butterfly Life Cycle"
+        },
+        {
+            "category": "Geography - Meteorology - Coastal Weather Patterns"
+        },
+        {
+            "category": "Science - Chemistry - Atomic Structure"
+        },
+        {
+            "category": "Geology - Rock Cycle - Metamorphism"
+        },
+        {
+            "category": "Biology - Animal Behavior - Recognition Adaptations"
+        },
+        {
+            "category": "Science - Physics - Thermal Stress"
+        },
+        {
+            "category": "Biology - Life Cycle - Frog Life Cycle"
+        },
+        {
+            "category": "Science - Chemistry - States of Matter"
+        },
+        {
+            "category": "Biology - Botany - Plant Growth"
+        },
+        {
+            "category": "Education - Science - Botany"
+        },
+        {
+            "category": "Science - Chemistry - Properties of Metals"
+        },
+        {
+            "category": "Science - Biology - Bacteria and Temperature"
+        }
+    ]
+}

@@ -1,0 +1,406 @@
+{
+    "raw_text": [
+        {
+            "question": "How does the output of a company that utilizes advanced technology compare to that of a company using traditional methods in terms of efficiency and productivity?",
+            "answer": "higher",
+            "distractor": "lower, similar, inconsistent"
+        },
+        {
+            "question": "How can the statement 'All humans are mortal' be translated into predicate logic?",
+            "answer": "\u2200x (Human(x) \u2192 Mortal(x))",
+            "distractor": "\u2203x (Human(x) \u2227 Mortal(x)), \u2200x (Mortal(x) \u2192 Human(x)), \u2200x (Human(x) \u2194 Mortal(x))"
+        },
+        {
+            "question": "What are the potential consequences of prioritizing personal gain over ethical standards in decision-making?",
+            "answer": "corruption",
+            "distractor": "increased trust, enhanced reputation, improved relationships"
+        },
+        {
+            "question": "How does the frequency of ultraviolet light compare to that of visible light in terms of energy and wavelength?",
+            "answer": "higher frequency, shorter wavelength",
+            "distractor": "lower frequency, longer wavelength, equal frequency, equal wavelength"
+        },
+        {
+            "question": "What is the primary function of congressional committees in the American government?",
+            "answer": "Legislation",
+            "distractor": "Oversight, Representation, Investigation"
+        },
+        {
+            "question": "What are the potential effects of maternal nutrition on fetal development during pregnancy?",
+            "answer": "Fetal growth and development",
+            "distractor": "Maternal stress levels, Environmental toxins, Genetic predisposition"
+        },
+        {
+            "question": "How do moral standards influence individual decision-making in ethical dilemmas?",
+            "answer": "guidance",
+            "distractor": "confusion, indifference, coercion"
+        },
+        {
+            "question": "How can a pedigree chart be used to determine the inheritance pattern of a genetic trait in a family?",
+            "answer": "Analyze relationships",
+            "distractor": "Count the number of offspring, Identify the dominant phenotype, Measure the trait's expression"
+        },
+        {
+            "question": "How does the concept of field extensions enhance our understanding of algebraic structures and their properties?",
+            "answer": "Algebraic closure",
+            "distractor": "Polynomial rings, Finite fields, Vector spaces"
+        },
+        {
+            "question": "What are the potential consequences of prioritizing individual rights over the common good in moral dilemmas?",
+            "answer": "social discord",
+            "distractor": "increased cooperation, enhanced community trust, greater social harmony"
+        },
+        {
+            "question": "How does the concept of a subgroup relate to the properties of the larger group it is part of?",
+            "answer": "Closure",
+            "distractor": "Identity, Inverses, Associativity"
+        },
+        {
+            "question": "How does the concept of continuity relate to the differentiability of a function at a given point?",
+            "answer": "Continuity is necessary for differentiability",
+            "distractor": "Continuity is sufficient for differentiability, Differentiability implies continuity, Continuity and differentiability are unrelated"
+        },
+        {
+            "question": "How does a Gantt chart help in visualizing project timelines and task dependencies?",
+            "answer": "visual representation",
+            "distractor": "textual summary, numerical data, task list"
+        },
+        {
+            "question": "How does feature selection impact the performance of a machine learning model?",
+            "answer": "improves accuracy",
+            "distractor": "increases complexity, reduces training time, eliminates overfitting"
+        },
+        {
+            "question": "What are the primary modes of HIV transmission that individuals should be aware of to prevent infection?",
+            "answer": "Unprotected sex",
+            "distractor": "Sharing needles, Blood transfusions, Casual contact"
+        },
+        {
+            "question": "What are the primary legal implications of defaulting on a mortgage in terms of foreclosure proceedings?",
+            "answer": "foreclosure",
+            "distractor": "repossession, eviction, loan modification"
+        },
+        {
+            "question": "What are the potential consequences of prioritizing individual rights over the common good in moral dilemmas?",
+            "answer": "social discord",
+            "distractor": "increased cooperation, enhanced community trust, greater social harmony"
+        },
+        {
+            "question": "What are the primary characteristics of somatoform disorders, and how do they differ from other mental health conditions?",
+            "answer": "physical symptoms without medical explanation",
+            "distractor": "emotional symptoms without physical cause, exaggerated physical symptoms with clear medical explanation, temporary physical symptoms due to stress"
+        },
+        {
+            "question": "What themes are commonly explored in the music of Huey Lewis and the News?",
+            "answer": "Love and relationships",
+            "distractor": "Social issues, Political commentary, Historical events"
+        },
+        {
+            "question": "What role do lipids play in the structure and function of cell membranes?",
+            "answer": "Structural components",
+            "distractor": "Energy storage, Genetic information, Enzyme catalysis"
+        },
+        {
+            "question": "How does social support influence an individual's mental health and well-being?",
+            "answer": "Positive impact",
+            "distractor": "Negative impact, No effect, Variable impact"
+        },
+        {
+            "question": "What are the potential consequences of prioritizing individual rights over the common good in moral dilemmas?",
+            "answer": "social discord",
+            "distractor": "increased cooperation, enhanced community trust, greater social harmony"
+        },
+        {
+            "question": "What are the common symptoms of pediatric infections that parents should be aware of to seek timely medical attention?",
+            "answer": "fever",
+            "distractor": "cough, rash, fatigue"
+        },
+        {
+            "question": "What does the alternative hypothesis represent in hypothesis testing?",
+            "answer": "The hypothesis that there is an effect or difference",
+            "distractor": "The hypothesis that there is no effect or difference, The hypothesis that results are due to chance, The hypothesis that the sample is representative of the population"
+        },
+        {
+            "question": "What is the significance of the Miranda v. Arizona case in relation to the rights of individuals during police interrogations?",
+            "answer": "Miranda rights",
+            "distractor": "due process, self-incrimination, double jeopardy"
+        },
+        {
+            "question": "What are the potential consequences of overloading an electrical outlet in a home?",
+            "answer": "fire hazard",
+            "distractor": "tripped circuit breaker, increased energy efficiency, improved appliance performance"
+        },
+        {
+            "question": "What are the key factors that trigger dormancy in organisms, and how do these factors affect their survival and reproduction?",
+            "answer": "Environmental changes",
+            "distractor": "Genetic mutations, Nutritional deficiencies, Seasonal variations"
+        },
+        {
+            "question": "How does the coastal climate influence the types of vegetation found in coastal regions?",
+            "answer": "salt-tolerant species",
+            "distractor": "tropical plants, desert shrubs, deciduous trees"
+        },
+        {
+            "question": "How does the process of photosynthesis transform solar energy into chemical energy in plants?",
+            "answer": "glucose",
+            "distractor": "oxygen, starch, carbon dioxide"
+        },
+        {
+            "question": "How does the presence of impurities in a liquid affect its boiling point?",
+            "answer": "raises",
+            "distractor": "lowers, has no effect, increases viscosity"
+        },
+        {
+            "question": "What is the primary purpose of wearing personal protective equipment (PPE) in a chemistry laboratory?",
+            "answer": "to protect against hazards",
+            "distractor": "to enhance visibility, to improve comfort, to increase efficiency"
+        },
+        {
+            "question": "What is the primary purpose of proper evidence handling in a criminal investigation?",
+            "answer": "Preserve integrity",
+            "distractor": "Facilitate arrests, Increase conviction rates, Reduce investigation time"
+        },
+        {
+            "question": "What is the effect of gaining or losing electrons on the charge of an atom, and how does this relate to the formation of ions?",
+            "answer": "Charge change",
+            "distractor": "Mass change, Atomic stability, Electron affinity"
+        },
+        {
+            "question": "What were the key findings that led to the discovery of the depletion of the ozone layer?",
+            "answer": "CFCs",
+            "distractor": "HFCs, Nitrous Oxide, Methane"
+        },
+        {
+            "question": "What are the primary ecological consequences of deforestation on local wildlife populations?",
+            "answer": "habitat loss",
+            "distractor": "increased biodiversity, improved soil quality, enhanced water retention"
+        },
+        {
+            "question": "What are the main criteria used to classify organisms in the biological taxonomy system?",
+            "answer": "Morphology",
+            "distractor": "Genetics, Behavior, Habitat"
+        },
+        {
+            "question": "What can the observation of celestial bodies tell us about the composition and behavior of the universe?",
+            "answer": "Cosmic information",
+            "distractor": "Planetary alignment, Stellar brightness, Lunar phases"
+        },
+        {
+            "question": "What factors influence the solubility of a substance in a solvent?",
+            "answer": "Temperature",
+            "distractor": "Pressure, Particle size, Concentration"
+        },
+        {
+            "question": "What are the main stages of the butterfly life cycle, and how do they contribute to the butterfly's development?",
+            "answer": "Egg, Larva, Pupa, Adult",
+            "distractor": "Caterpillar, Nymph, Chrysalis"
+        },
+        {
+            "question": "How do coastal weather patterns differ from inland weather patterns in terms of temperature and humidity?",
+            "answer": "more moderate",
+            "distractor": "more extreme, less variable, more humid"
+        },
+        {
+            "question": "What is the significance of the arrangement of electrons in an atom's electron cloud?",
+            "answer": "Chemical properties",
+            "distractor": "Nuclear stability, Atomic mass, Ionization energy"
+        },
+        {
+            "question": "How does the process of metamorphism transform existing rocks into metamorphic rocks?",
+            "answer": "heat and pressure",
+            "distractor": "chemical weathering, erosion, sedimentation"
+        },
+        {
+            "question": "How do recognition adaptations in animals enhance their survival and reproductive success?",
+            "answer": "identification of kin",
+            "distractor": "mimicry of predators, avoidance of competition, development of camouflage"
+        },
+        {
+            "question": "How does thermal stress affect the structural integrity of materials when they are subjected to temperature changes?",
+            "answer": "deformation",
+            "distractor": "expansion, contraction, fatigue"
+        },
+        {
+            "question": "What are the main stages of a frog's life cycle, and how do they transition from one stage to another?",
+            "answer": "Egg, Tadpole, Froglet, Adult",
+            "distractor": "Larva, Nymph, Juvenile"
+        },
+        {
+            "question": "What happens to the arrangement of particles in a substance when it transitions from a solid to a liquid state?",
+            "answer": "particles become more disordered",
+            "distractor": "particles become more ordered, particles remain unchanged, particles form a rigid structure"
+        },
+        {
+            "question": "How do environmental factors such as light, water, and temperature influence the growth and development of plants?",
+            "answer": "Photosynthesis",
+            "distractor": "Respiration, Germination, Pollination"
+        },
+        {
+            "question": "How do plants adapt their structures to optimize photosynthesis in varying light conditions?",
+            "answer": "leaf morphology",
+            "distractor": "root depth, stem thickness, flower color"
+        },
+        {
+            "question": "What are the common properties of metals that distinguish them from non-metals?",
+            "answer": "Conductivity",
+            "distractor": "Brittleness, Insulation, Dullness"
+        },
+        {
+            "question": "How does temperature affect the growth rate of bacteria?",
+            "answer": "Increases up to an optimum",
+            "distractor": "Decreases steadily, Remains constant, Fluctuates randomly"
+        }
+    ],
+    "prompt": [
+        {
+            "category": "Economics - Production - Output Comparison"
+        },
+        {
+            "category": "Logic - Predicate Logic - Translation"
+        },
+        {
+            "category": "Ethics - Moral Standards - Moral Dilemmas"
+        },
+        {
+            "category": "Physics - Optics - Ultraviolet Light Frequency"
+        },
+        {
+            "category": "Political Science - American Government - Congressional Committees"
+        },
+        {
+            "category": "Health - Reproductive Health - Pregnancy and Lactation"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Standards"
+        },
+        {
+            "category": "Genetics - Pedigree Analysis - Inheritance Patterns"
+        },
+        {
+            "category": "Mathematics - Algebra - Field Extensions"
+        },
+        {
+            "category": "Ethics - Morality - Moral Dilemmas"
+        },
+        {
+            "category": "Mathematics - Abstract Algebra - Group Theory"
+        },
+        {
+            "category": "Mathematics - Analysis - Continuity and Differentiability"
+        },
+        {
+            "category": "Project Management - Tools - Gantt Chart"
+        },
+        {
+            "category": "Data Science - Machine Learning - Feature Selection"
+        },
+        {
+            "category": "Health - Infectious Diseases - HIV Transmission"
+        },
+        {
+            "category": "Law - Property Law - Mortgages and Foreclosure"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Dilemmas"
+        },
+        {
+            "category": "Psychology - Mental Health - Somatoform Disorders"
+        },
+        {
+            "category": "Music - Bands - Huey Lewis and the News"
+        },
+        {
+            "category": "Science - Biology - Lipids"
+        },
+        {
+            "category": "Psychology - Health - Social Support and Health"
+        },
+        {
+            "category": "Ethics - Moral Philosophy - Moral Dilemmas"
+        },
+        {
+            "category": "Medicine - Infectious Diseases - Pediatric Infections"
+        },
+        {
+            "category": "Statistics - Hypothesis Testing - Alternative Hypothesis"
+        },
+        {
+            "category": "Law - Constitutional Law - Miranda v. Arizona"
+        },
+        {
+            "category": "Home Improvement - Appliances - Electrical Outlets"
+        },
+        {
+            "category": "Science - Biology - Dormancy in Organisms"
+        },
+        {
+            "category": "Science - Earth Science - Coastal Climate"
+        },
+        {
+            "category": "Science - Chemistry - Energy Transformations"
+        },
+        {
+            "category": "Science - Chemistry - Boiling Point Investigation"
+        },
+        {
+            "category": "Science - Chemistry - Laboratory Safety and Procedures"
+        },
+        {
+            "category": "Law - Criminal Justice - Evidence Handling"
+        },
+        {
+            "category": "Chemistry - Atomic Structure - Ions"
+        },
+        {
+            "category": "Science - Atmospheric Science - Ozone Layer Discovery"
+        },
+        {
+            "category": "Environmental Science - Ecology - Deforestation"
+        },
+        {
+            "category": "Science - Biology - Taxonomy"
+        },
+        {
+            "category": "Science - Astronomy - Celestial Observations"
+        },
+        {
+            "category": "Science - Chemistry - Solubility"
+        },
+        {
+            "category": "Biology - Entomology - Butterfly Life Cycle"
+        },
+        {
+            "category": "Geography - Meteorology - Coastal Weather Patterns"
+        },
+        {
+            "category": "Science - Chemistry - Atomic Structure"
+        },
+        {
+            "category": "Geology - Rock Cycle - Metamorphism"
+        },
+        {
+            "category": "Biology - Animal Behavior - Recognition Adaptations"
+        },
+        {
+            "category": "Science - Physics - Thermal Stress"
+        },
+        {
+            "category": "Biology - Life Cycle - Frog Life Cycle"
+        },
+        {
+            "category": "Science - Chemistry - States of Matter"
+        },
+        {
+            "category": "Biology - Botany - Plant Growth"
+        },
+        {
+            "category": "Education - Science - Botany"
+        },
+        {
+            "category": "Science - Chemistry - Properties of Metals"
+        },
+        {
+            "category": "Science - Biology - Bacteria and Temperature"
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+import json
+from datasets import Dataset, Features, Value, Sequence
+import os
+import datetime
+
+def convert_json_to_hf_dataset(json_file_path, output_dir):
+
+    with open(json_file_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    dataset_names = []
+    questions = []
+    distractors = []
+    correct_answers = []
+    categories = []
+    
+    for i in range(len(data["raw_text"])):
+        dataset_names.append("generated")
+        questions.append(data["raw_text"][i]["question"])
+        distractors.append(data["raw_text"][i]["distractor"].split(", "))
+        correct_answers.append(data["raw_text"][i]["answer"])
+        categories.append(data["prompt"][i]["category"])
+
+    dataset_dict = {
+        "dataset": dataset_names,
+        "question": questions,
+        "distractors": distractors,
+        "correct_answer": correct_answers,
+        "category": categories
+    }
+    
+    features = Features({
+        "dataset": Value("string"),
+        "question": Value("string"),
+        "distractors": Sequence(Value("string")),
+        "correct_answer": Value("string"),
+        "category": Value("string"),
+    })
+
+    hf_dataset = Dataset.from_dict(dataset_dict, features=features)
+
+
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    final_output_dir = os.path.join(output_dir, timestamp)
+    os.makedirs(final_output_dir, exist_ok=True)
+
+    hf_dataset.save_to_disk(final_output_dir)
+    print(f"Dataset saved to {final_output_dir}")
+    return final_output_dir
+
+
+if __name__ == "__main__":
+    json_file = "/fs/clip-projects/rlab/atrey/qgqa/QG-vs-QA/script_results/gpt-4o-mini/default/tree_generation.json"
+    output_directory = "/fs/clip-projects/rlab/atrey/qgqa/QG-vs-QA/script_results/hf_dataset_output"
+
+    os.makedirs(output_directory, exist_ok=True)
+    saved_dir = convert_json_to_hf_dataset(json_file, output_directory)
+
+    from datasets import load_from_disk
+    loaded_dataset = load_from_disk(saved_dir)
+    print(f"Loaded dataset: {loaded_dataset}")
+    print(f"First example: {loaded_dataset[0]}")
+    print(f"Features: {loaded_dataset.features}")
+    print(f"Number of examples : {len(loaded_dataset)}")
+    loaded_dataset.push_to_hub("atreydesai/qgqa_generated")
