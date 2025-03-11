@@ -10,17 +10,17 @@ dataset_name="atreydesai/mmlu_arc_categories"
 # name of the model (identified by the API)
 # model_name="meta-llama/Meta-Llama-3-8B-Instruct"
 # model_name="mistralai/Mistral-Nemo-Instruct-2407"
-model_name="mistralai/Mistral-Nemo-Instruct-2407"
+model_name="gpt-4o-mini"
 
 # model type (see enums.py). Currently supported: hf_chat (Huggingface), open_ai, cohere, anthropic
-model_type="hf_chat"
+model_type="open_ai"
 
 # how to identify this run
 run_name="default"
 
 # API tokens
-hf_token= # huggingface read token (for downloading gated models)
-open_ai_token= # OpenAI token (for GPT models)
+
+
 cohere_token=... # Cohere token (Command-R)
 anthropic_token=... # Anthropic token (Claude)
 
@@ -36,7 +36,7 @@ partition="full"  # partition of the dataset. can be "full" or in halves (e.g. "
 # see all possible experiments in: /mcqa-artifacts/model/data_loader.py
 # experiments=("tree_generation")
 experiments=("tree_generation")
-step_combination="qad"
+step_combination="mh"
 use_choices_only="false"
 bloom_level="application"  #an be "knowledge", "comprehension", "application"
 
